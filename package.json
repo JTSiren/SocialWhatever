@@ -1,0 +1,15 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "Practice running Express servers during Portland Code School JS Immersion course, 2015",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joseph Fraley",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "normalize.css": "^3.0.3"
+  }
+}
