@@ -15,6 +15,7 @@ app.get('/', function(req, res){
   res.sendfile('public/index.html');
 });
 
+
 app.get('/login', function(req, res){
   res.sendfile('public/login.html');
 })
@@ -24,21 +25,26 @@ app.post('/login/:user', function(req, res){
   console.log( username );
 })
 
+app.post('/login', function(req, res){
+  //
+});
+
+
 app.get('/register', function(req, res){
 
-})
+});
 
 app.post('/register', function(req, res){
   
-})
+});
 
 app.get('/search', function(req, res){
 
-})
+});
 
 app.post('/search', function(req, res){
   
-})
+});
 
 app.get('/profile', function(req, res){
   //
@@ -50,7 +56,7 @@ app.get('/about', function(req, res){
 
 app.get('/favorites', function(req, res){
 
-})
+});
 
 
 
