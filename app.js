@@ -15,9 +15,20 @@ app.get('/', function(req, res){
   res.sendfile('public/index.html');
 });
 
+
+app.get('/login', function(req, res){
+  res.sendfile('public/login.html');
+})
+
+app.post('/login/:user', function(req, res){
+  var username = req.params.user;
+  console.log( username );
+})
+
 app.post('/login', function(req, res){
   //
 });
+
 
 app.get('/register', function(req, res){
 
