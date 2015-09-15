@@ -1,6 +1,7 @@
 extends ./layout.jade
 
 block content
+  p.error #{error}
   form.form-horizontal(action='/login', method="POST")
     fieldset
       #legend
