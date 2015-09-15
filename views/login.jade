@@ -1,0 +1,31 @@
+extends ./layout.jade
+
+block content
+  form.form-horizontal(action='/login', method="POST")
+    fieldset
+      #legend
+        legend Log In
+      .control-group
+        label.control-label(for="username") Username
+        .controls
+          input#username.input-xlarge(type="text", name="username", placeholder="")
+          p.help-block Username can contain any letters or numbers, without spaces
+        .controls
+          button.btn.btn-success Log In
+  br
+  form.form-horizontal(action='/register', method="POST")
+    fieldset
+      #legend
+        legend No Account? Register Now!
+      .control-group
+        label.control-label(for="username") Username
+        .controls
+          input#username.input-xlarge(type="text", name="username", placeholder="")
+          p.help-block Username can contain any letters or numbers, without spaces
+        .controls
+          button.btn.btn-success Log In
+  
+  nav.navbar.navbar-default.navbar-fixed-bottom
+    .container
+      footer
+        p &copy; Social Whatever 2015
