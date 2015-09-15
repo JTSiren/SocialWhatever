@@ -1,0 +1,77 @@
+
+/** {
+  background: #FFFFA3;
+  box-sizing: border-box;
+}*/
+
+.nav {
+    
+    background-color: #003300;
+}
+
+#userphoto img {
+    max-width: 35%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border: 2px solid #009900;
+    border-radius: 70%;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+.navbar-brand {
+    width: 100%;
+    font-size: 2em;
+    margin-top: 10px;
+    color: white;
+    background-color: #003300;
+}
+
+
+#friend-buttons li {
+    border: 2px solid #009900;
+    text-indent: none;
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+#friend-buttons li a{
+    padding: 10px;
+}
+
+.nav-pills {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+.glyphicon {
+    margin-right: 8px;
+}
+
+.main-footer {
+    background-color: #009900
+    height: 50px;
+}
+
+.main-header {
+    height: 850px;
+    padding-top: 30px;
+    background: linear-gradient(#000000, transparent 90%),
+                linear-gradient(0deg, #FFFFA3, transparent),
+                #000000 url('img/Foliage 469.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
