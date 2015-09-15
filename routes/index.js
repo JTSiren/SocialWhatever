@@ -75,13 +75,17 @@ router.post('/register', function(req, res){
 
     users = JSON.stringify(users);
     fs.writeFile( __dirname + '/users.json', users );
-  });
 
-  res.cookie( 'logged' , true );
-  res.cookie( 'username', username );
-  res.redirect('/');
-  
+    res.cookie( 'logged' , true );
+    res.cookie( 'username', username );
+    res.redirect('/');
+  });
 });
+
+router.post('logout', function(res, req, next){
+  req.cookies.clear;
+  res.redirect('/login');
+})
 
 module.exports = router;
 
