@@ -1,13 +1,13 @@
 extends ./layout.jade
 
 block content
-  p.error #{error}
   form.form-horizontal(action='/login', method="POST")
     fieldset
       #legend
         legend Log In
       .control-group
         label.control-label(for="username") Username
+        p.error #{error}
         .controls
           input#username.input-xlarge(type="text", name="username", placeholder="")
           p.help-block Username can contain any letters or numbers, without spaces
