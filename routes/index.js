@@ -18,7 +18,8 @@ router.get('/', function(req, res, next) {
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
       user = JSON.parse( data )[req.cookies.username];
       console.log( 'here is the user im passing to the index jade template: ', user );
-      res.render('index', user );
+      res.render('index', { username: user.username, posts: { content : 'this is a post!' } } );
+
     });
     
   }
@@ -93,11 +94,13 @@ router.post('/logout', function(req, res, next){
 
 router.post('/post', function(req, res, next){
 
-  // console.log( 'this is the request object body: ', req.body.content );
+
+  //console.log( 'this is the request object body: ', req.body.content );
   var users = {};
-  // console.log('starting', users);
+  //console.log(users);
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-    // console.log('read working?');
+    //console.log('read working?');
+
   users = JSON.parse( data );
   var user = users[req.cookies.username];
   // console.log('after parse', users)
@@ -108,11 +111,13 @@ router.post('/post', function(req, res, next){
     date: '',
     favorited: true
   };
-  // console.log("post is ", post);
+
+  //console.log("post is ", post);
 
   posts.unshift( post );
-  // console.log('after adding post', users)
-  // console.log("posts is ", posts);
+  
+  //console.log("posts is ", posts);
+
   
     
   users = JSON.stringify(users, null, 4);

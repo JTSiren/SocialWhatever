@@ -6,16 +6,12 @@ block content
   h1 Posts
   form#post(action="/post", type="POST")
     input(type="text")
-
+  
+  h1 #{posts}
   ul.posts
-    li.post #{posts}
-    li.post
-    li.post
-
-  ul.favorites
-    li.favorite #{favorites}
-    li.favorite
-    li.favorite
+    each post in posts
+      each prop in post
+        li.post= prop
 
   script(type='text/javascript').
     $('#post').submit( function(event){
