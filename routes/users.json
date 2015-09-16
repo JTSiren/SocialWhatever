@@ -1,26 +1,77 @@
 {
-    "Matt": {
-        "username": "Matt",
-        "posts": [
-            {
-                "content": "this will be matt's third post!",
-                "date": "",
-                "favorited": true
-            },
-            {
-                "content": "cmon baby",
-                "date": "09/16/2015"
-            },
-            {
-                "content": "now we're cookin",
-                "date": "09/16/2015"
-            }
-        ],
-        "favs": []
-    },
-    "Mark Hamill": {
-        "username": "Mark Hamill",
-        "posts": [],
-        "favs": []
+    "Mother": [
+        {
+            "username": "Joe",
+            "content": "This looks great!",
+            "date": "2015-09-16T22:09:29.613Z",
+            "favorited": false
+        },
+        {
+            "username": "Alfred Pennyworth",
+            "content": "Batcave clean...I mean! Bat manor! I mean...just the manor...",
+            "date": "2015-09-16T22:04:07.040Z",
+            "favorited": false
+        },
+        {
+            "username": "Alfred Pennyworth",
+            "content": "Batcave clean...I mean! Bat manor! I mean...just the manor...",
+            "date": "2015-09-16T22:02:07.029Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "This is the first post...EVER!",
+            "date": "2015-09-16T21:26:08.887Z",
+            "favorited": false
+        }
+    ],
+    "Users": {
+        "Matt": {
+            "username": "Matt",
+            "posts": [
+                {
+                    "username": "Matt",
+                    "content": "This is the first post...EVER!",
+                    "date": "2015-09-16T21:26:08.887Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Mark Hamill": {
+            "username": "Mark Hamill",
+            "posts": [],
+            "favs": []
+        },
+        "Alfred Pennyworth": {
+            "username": "Alfred Pennyworth",
+            "posts": [
+                {
+                    "username": "Alfred Pennyworth",
+                    "content": "Batcave clean...I mean! Bat manor! I mean...just the manor...",
+                    "date": "2015-09-16T22:04:07.040Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Alfred Pennyworth",
+                    "content": "Batcave clean...I mean! Bat manor! I mean...just the manor...",
+                    "date": "2015-09-16T22:02:07.029Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Joe": {
+            "username": "Joe",
+            "posts": [
+                {
+                    "username": "Joe",
+                    "content": "This looks great!",
+                    "date": "2015-09-16T22:09:29.613Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        }
     }
 }
