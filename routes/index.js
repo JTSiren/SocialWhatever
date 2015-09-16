@@ -91,31 +91,55 @@ router.post('/logout', function(req, res, next){
 //   res.render('index');
 // })
 
+// router.post('/post', function(req, res, next){
+// 
+//   console.log( 'this is the request object body: ', req.body.content );
+//   /*
+//   var user = readFile
+// 
+//   var posts = user.posts // []
+//   
+//   var post  = {
+//     content: res.data,
+//     date: '',
+//     favorited: true
+//   }
+// 
+//   posts.unshift( post );
+// 
+//   writeFile
+// 
+//   render success message
+//   */
+// 
+// });
+
 router.post('/post', function(req, res, next){
 
   console.log( 'this is the request object body: ', req.body.content );
-  /*
-  var user = readFile
-
-  var posts = user.posts // []
+  var users = {};
+  console.log(users);
+  fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+    console.log('read working?');
+  users = JSON.parse( data );
+  var user = users[req.cookies.username];
+  var posts = user.posts;
   
   var post  = {
-    content: res.data,
+    content: req.body.content,
     date: '',
     favorited: true
-  }
+  };
+  console.log("post is ", post);
 
   posts.unshift( post );
-
-  writeFile
-
-  render success message
-  */
-
-})
+  
+  console.log("posts is ", posts);
+  
+    
+  users = JSON.stringify(users, null, 4);
+  fs.writeFile( __dirname + '/users.json', users );
+  });
+});
 
 module.exports = router;
-
-
-
-
