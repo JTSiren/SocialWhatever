@@ -108,7 +108,7 @@ router.post('/post', function(req, res, next){
 
   var post  = {
     content: req.body.content,
-    date: '',
+    date: new Date(),
     favorited: true
   };
 
