@@ -75,12 +75,12 @@ router.post('/register', function(req, res){
 
     users = JSON.stringify(users);
     fs.writeFile( __dirname + '/users.json', users );
-  });
+  
 
   res.cookie( 'logged' , true );
   res.cookie( 'username', username );
   res.redirect('/');
-  
+});  
 });
 
 module.exports = router;

@@ -1,0 +1,62 @@
+Final Spec for the Microblog
+
+it should allow a user to log in at /login
+
+if a user goes to / without being logged in, redirect them to /login
+
+redirect logged in users from /login to /
+
+set a cookie for a logged-in user in order to keep them logged in
+
+
+
+Create a log out button that deletes cookies.
+
+allow a user to make posts, without reloading the page
+	
+	
+	There will be a homepage - when you log in, go to the homepage.
+		Homepage-
+			text area
+			submit button
+
+
+
+
+display to a logged in user the list of all posts made by all users
+
+give a logged-in user the ability to log out and redirect them to the log-in page
+do not allow a non-logged-in user to see posts
+for each user, a logged-in user should have the ability to visit /user/NAME and see the list of all posts made by that user
+a logged-in user should have the ability to delete their own posts
+the main page should refresh periodically and display new posts
+If you are done with those basic tasks, then some possible other additions to your website are:
+
+adding user profiles
+the user profile should be editable only by the logged-in user
+the user profile should be displayed along with the list of their posts
+implementing notifications and @s
+add the ability to @ another user of the system
+add a set of notifications for each user that displays all the messages that they’ve had @’ed at them
+implementing “repost”
+to each post a user should see a button to repost
+when a user clicks the button then a new post is made in the format
+RP> original-user: original-text
+the new post is, as usual, attached to their name
+make it not ugly
+while you can make a prototype that uses no css or pretty formatting at all, this isn’t ideal; practice your design skills on your project
+The basic structure of this project is that you will need to:
+
+modify the file routes/index.js to provide all the routes you need
+to start with, try adding them one at a time and building the views as you go
+there will be some logic that you need to use within the routes, such as checking to see if a user is logged in
+adding a set of views to views/, one for each page that the user will see
+these views will also need to pass along javascript code for doing
+event handling
+cookie manipulation
+ajax calls
+download several helpful Javascript libraries into public/javascripts/
+jQuery
+js-cookie
+initialize data for the application into app.js using app.locals.PROPERTY
+you can access this in any route handlers using req.app.locals.PROPERTY
