@@ -3,6 +3,7 @@
         "username": "Matt",
         "posts": [
             {
+<<<<<<< HEAD
                 "content": "a third!",
                 "date": "",
                 "favorited": true
@@ -19,8 +20,19 @@
             },
             {
                 "content": "cmon baby",
+=======
+                "content": "this will be matt's third post!",
+>>>>>>> 311e0e24d7807300ccd2732621de7f47ac8382d6
                 "date": "",
                 "favorited": true
+            },
+            {
+                "content": "cmon baby",
+                "date": "09/16/2015"
+            },
+            {
+                "content": "now we're cookin",
+                "date": "09/16/2015"
             }
         ],
         "favs": []

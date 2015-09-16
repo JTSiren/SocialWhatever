@@ -6,12 +6,10 @@ block content
   h1 Posts
   form#post(action="/post", type="POST")
     input(type="text")
-  
-  h1 #{posts}
+
   ul.posts
     each post in posts
-      each prop in post
-        li.post= prop
+        li.post= post.content
 
   script(type='text/javascript').
     $('#post').submit( function(event){
@@ -26,3 +24,21 @@ block content
           console.log('I wrote a post!' );
         });
       });
+
+  script(type="text/javascript").
+    function refreshPosts () {
+      var newposts = []
+      $.get( url, function(){
+        //get new posts
+        //save them to variable
+        })
+      newposts.forEach( function(element){
+        $('.posts').append('<li>').html( element.content );
+      }
+    }
+
+    window.setInterval(refreshPosts, 10000);
+
+
+
+

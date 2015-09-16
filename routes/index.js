@@ -17,8 +17,9 @@ router.get('/', function(req, res, next) {
 
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
       user = JSON.parse( data )[req.cookies.username];
+
       console.log( 'here is the user im passing to the index jade template: ', user );
-      res.render('index', { username: user.username, posts: user.posts} );
+      res.render('index', { username: user.username, posts: user.posts } );
 
     });
     
@@ -108,8 +109,8 @@ router.post('/post', function(req, res, next){
 
   var post  = {
     content: req.body.content,
-    date: '',
-    favorited: true
+    date: new Date(),
+    favorited: false
   };
 
   //console.log("post is ", post);
