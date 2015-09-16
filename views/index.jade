@@ -8,14 +8,8 @@ block content
     input(type="text")
 
   ul.posts
-    li.post #{posts}
-    li.post
-    li.post
-
-  ul.favorites
-    li.favorite #{favorites}
-    li.favorite
-    li.favorite
+    each post in #{posts}
+      li.post #{content}
 
   script(type='text/javascript').
     $('#post').submit( function(event){
