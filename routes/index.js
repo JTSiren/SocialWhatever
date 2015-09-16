@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
     var user = {};
 
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+
       data = JSON.parse( data ) 
       users = data.Users
       user = users[req.cookies.username];
@@ -52,7 +53,7 @@ router.post('/login', function(req, res, next){
       res.redirect('/');
     }
     else{
-      res.render('login', { error: "don't you want to register first? how do you think this works...?" } )
+      res.render('login', { error: "don't you want to register first? how do you think this works...?" } );
     }
   }); //end readFile callback
 }); //end /login post
@@ -92,18 +93,23 @@ router.get('/logout', function(req, res, next){
   //next();
 }); //end /logout post
 
+
 router.post('/post', function(req, res, next){
+
 
   //console.log( 'this is the request object body: ', req.body.content );
   var users = {};
   //console.log(users);
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
     //console.log('read working?');
+
   data = JSON.parse( data );
   users = data.Users
+
   var user = users[req.cookies.username];
+  // console.log('after parse', users)
   var posts = user.posts;
-  
+
   var post  = {
     username: user.username,
     content: req.body.content,
@@ -111,17 +117,18 @@ router.post('/post', function(req, res, next){
     timeStamp: Date.parse(date)
     favorited: false
   };
+
   //console.log("post is ", post);
 
   posts.unshift( post );
   
   //console.log("posts is ", posts);
+
   
   data.Mother.unshift( post );
-
-    
   data = JSON.stringify(data, null, 4);
   fs.writeFile( __dirname + '/users.json', data );
+
   });
 });
 
