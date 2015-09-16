@@ -1,4 +1,18 @@
 {
-  "Matt": {"username": "Matt", "posts":[],"favs":[]} , 
-  "Mark Hamill": {"username": "Mark Hamill", "posts":[],"favs":[] } 
+    "Matt": {
+        "username": "Matt",
+        "posts": [
+            {
+                "content": "cmon baby",
+                "date": "",
+                "favorited": true
+            }
+        ],
+        "favs": []
+    },
+    "Mark Hamill": {
+        "username": "Mark Hamill",
+        "posts": [],
+        "favs": []
+    }
 }
