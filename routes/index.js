@@ -5,17 +5,12 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log('============================\nthe router is working as expected!\n============================');
-  console.log( 'this is the request cookie: ', req.cookies );
-  
-  var user = {};
+  console.log( 'these are my current cookies: ', req.cookies );
+  // var user = {};
 
-  fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-    console.log( 'Im running the readFile function');
-    console.log( 'data: ', data);
-    user = JSON.parse( data )//[req.cookies.username];
-    console.log( "here's what i think the user is: ", user );
-  });
+  // fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+  //   user = JSON.parse( data )//[req.cookies.username];
+  // });
 
   if ( req.cookies.logged === undefined ){
     res.redirect('/login');
@@ -27,7 +22,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function( req, res, next ){
-
+  
   if ( req.cookies.logged ){
     res.redirect('/');
   }
@@ -37,29 +32,23 @@ router.get('/login', function( req, res, next ){
 });
 
 router.post('/login', function(req, res, next){
-
+  
   var username = req.body.username;
   
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-    console.log( 'this is what i think the data is: ', data)
     data = JSON.parse(data);
-    console.log( 'this is the parsed data: ', data );
-    console.log( 'this is the property at ' + username, data[username] )
     if( data[username] ){
       res.cookie( 'logged' , true );
       res.cookie( 'username', username );
       res.redirect('/');
     }
     else{
-      res.render('login', { error: "don't you want to register first? you crazy!" } )
+      res.render('login', { error: "don't you want to register first? how do you think this works...?" } )
     }
-  
-  });
-  
-});
+  }); //end readFile callback
+}); //end /login post
 
 router.post('/register', function(req, res){
-  //console.log('fs good? ', typeof fs)
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
 
     var username = req.body.username;
@@ -80,14 +69,19 @@ router.post('/register', function(req, res){
     res.cookie( 'logged' , true );
     res.cookie( 'username', username );
     res.redirect('/');
-  });
 
-});
+  }); //end readFile callback
+});// end /register post
 
-router.post('logout', function(res, req, next){
-  req.cookies.clear;
-  res.redirect('/login');
-})
+router.post('/logout', function(req, res, next){
+  console.log( 'the logout post is being recieved!' );
+  console.log( 'cookies as read from the button post: ', req.cookies ); 
+  res.clearCookie('logged', {path: '/'});
+  res.clearCookie('username', {path: '/'});
+  res.render('index'); //IF THIS ISN'T HERE, THE COOKIES STAY, WHY?
+  /*I NEED TO RENDER A NEW PAGE AFTER DELETING THE COOKIES!*/
+}); //end /logout post
+
 
 module.exports = router;
 
