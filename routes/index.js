@@ -116,6 +116,29 @@ router.post('/post', function(req, res, next){
 
 module.exports = router;
 
+router.post('/post', function(req, res, next){
 
+  console.log( 'this is the request object body: ', req.body.content );
+  var users = {};
+  fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+  users = JSON.parse( data );
+  var user = users[req.cookies.username];
+  var posts = user.posts;
+  
+  var post  = {
+    content: req.body.content,
+    date: '',
+    favorited: true
+  };
 
+  posts.content.unshift( post );
+  
+  users[user] = user;
+  users[user.posts] = posts;
+});
 
+  fs.writeFile( __dirname + '/users.json', users );
+
+});
+
+module.exports = router;
