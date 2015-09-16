@@ -1,1 +1,4 @@
-{"a":"b","Matt":{"posts":{},"favs":{}},"Mark Hamill":{"posts":{},"favs":{}} }
+{
+  "Matt": {"username": "Matt", "posts":[],"favs":[]} , 
+  "Mark Hamill": {"username": "Mark Hamill", "posts":[],"favs":[] } 
+}
