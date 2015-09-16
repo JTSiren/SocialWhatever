@@ -1,22 +1,26 @@
 var express = require('express');
 var router = express.Router();
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log( 'these are my current cookies: ', req.cookies );
-  // var user = {};
-
-  // fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-  //   user = JSON.parse( data )//[req.cookies.username];
-  // });
 
   if ( req.cookies.logged === undefined ){
     res.redirect('/login');
   }
+
   else {
-    res.render('index', { title: 'Express' });
+    var user = {};
+
+    fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+      user = JSON.parse( data )[req.cookies.username];
+      console.log( 'here is the user im passing to the index jade template: ', user )
+      res.render('index', user );
+    });
+    
   }
 
 });
@@ -57,8 +61,9 @@ router.post('/register', function(req, res){
 
     if ( users[username] === undefined ){
       users[username]={
-        posts: {},
-        favs: {},
+        username: username,
+        posts: [],
+        favs: []
       };
     }
 
@@ -76,12 +81,39 @@ router.post('/logout', function(req, res, next){
   console.log( 'cookies as read from the button post: ', req.cookies ); 
   res.clearCookie('logged', {path: '/'});
   res.clearCookie('username', {path: '/'});
-  res.render('index'); //IF THIS ISN'T HERE, THE COOKIES STAY, WHY?
+  //res.render('index'); //IF THIS ISN'T HERE, THE COOKIES STAY, WHY?
   /*I NEED TO RENDER A NEW PAGE AFTER DELETING THE COOKIES!*/
+  //next();
 }); //end /logout post
 
+// router.get('/', function(req, res, next){
+//   console.log('im  the "next" thing, running now!')
+//   res.render('index');
+// })
+
+router.post('/post', function(req, res, next){
+
+  console.log( 'this is the request object body: ', req.body.content );
+  var users = {};
+  fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+  users = JSON.parse( data );
+  var user = users[req.cookies.username];
+  var posts = user.posts;
+  
+  var post  = {
+    content: req.body.content,
+    date: '',
+    favorited: true
+  };
+
+  posts.content.unshift( post );
+  
+  users[user] = user;
+  users[user.posts] = posts;
+});
+
+  fs.writeFile( __dirname + '/users.json', users );
+
+});
+
 module.exports = router;
-
-
-
-
