@@ -3,9 +3,17 @@
         "username": "Matt",
         "posts": [
             {
-                "content": "cmon baby",
+                "content": "this will be matt's third post!",
                 "date": "",
                 "favorited": true
+            },
+            {
+                "content": "cmon baby",
+                "date": "09/16/2015"
+            },
+            {
+                "content": "now we're cookin",
+                "date": "09/16/2015"
             }
         ],
         "favs": []
