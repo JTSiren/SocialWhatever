@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
       user = JSON.parse( data )[req.cookies.username];
 
-      console.log( 'here is the user im passing to the index jade template: ', user );
+      console.log( 'here is the user im passing to the index jade template: ', user );  
       res.render('index', { username: user.username, posts: user.posts } );
 
     });
