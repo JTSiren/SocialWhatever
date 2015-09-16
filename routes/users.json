@@ -3,6 +3,21 @@
         "username": "Matt",
         "posts": [
             {
+                "content": "a third!",
+                "date": "",
+                "favorited": true
+            },
+            {
+                "content": "a third!",
+                "date": "",
+                "favorited": true
+            },
+            {
+                "content": "another post",
+                "date": "",
+                "favorited": true
+            },
+            {
                 "content": "cmon baby",
                 "date": "",
                 "favorited": true

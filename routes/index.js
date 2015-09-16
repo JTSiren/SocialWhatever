@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
       user = JSON.parse( data )[req.cookies.username];
-      console.log( 'here is the user im passing to the index jade template: ', user )
+      console.log( 'here is the user im passing to the index jade template: ', user );
       res.render('index', user );
     });
     
@@ -47,7 +47,7 @@ router.post('/login', function(req, res, next){
       res.redirect('/');
     }
     else{
-      res.render('login', { error: "don't you want to register first? how do you think this works...?" } )
+      res.render('login', { error: "don't you want to register first? how do you think this works...?" } );
     }
   }); //end readFile callback
 }); //end /login post
@@ -91,53 +91,32 @@ router.post('/logout', function(req, res, next){
 //   res.render('index');
 // })
 
-// router.post('/post', function(req, res, next){
-// 
-//   console.log( 'this is the request object body: ', req.body.content );
-//   /*
-//   var user = readFile
-// 
-//   var posts = user.posts // []
-//   
-//   var post  = {
-//     content: res.data,
-//     date: '',
-//     favorited: true
-//   }
-// 
-//   posts.unshift( post );
-// 
-//   writeFile
-// 
-//   render success message
-//   */
-// 
-// });
-
 router.post('/post', function(req, res, next){
 
-  console.log( 'this is the request object body: ', req.body.content );
+  // console.log( 'this is the request object body: ', req.body.content );
   var users = {};
-  console.log(users);
+  // console.log('starting', users);
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-    console.log('read working?');
+    // console.log('read working?');
   users = JSON.parse( data );
   var user = users[req.cookies.username];
+  // console.log('after parse', users)
   var posts = user.posts;
-  
+
   var post  = {
     content: req.body.content,
     date: '',
     favorited: true
   };
-  console.log("post is ", post);
+  // console.log("post is ", post);
 
   posts.unshift( post );
-  
-  console.log("posts is ", posts);
+  // console.log('after adding post', users)
+  // console.log("posts is ", posts);
   
     
   users = JSON.stringify(users, null, 4);
+  // console.log('after stringify', users)
   fs.writeFile( __dirname + '/users.json', users );
   });
 });
