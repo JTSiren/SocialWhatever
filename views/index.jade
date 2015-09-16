@@ -7,9 +7,9 @@ block content
   form#post(action="/post", type="POST")
     input(type="text")
 
-  ul.posts
-    each post in posts
-        li.post= post.content
+  ul.allPosts
+    each post in allPosts
+      li= post.username + ' - ' + post.content + ' at ' + post.date
 
   script(type='text/javascript').
     $('#post').submit( function(event){
@@ -22,22 +22,24 @@ block content
 
         $.post(url, content, function(response){ 
           console.log('I wrote a post!' );
+          $('#post').children('input').empty();
         });
+
+
       });
 
   script(type="text/javascript").
     function refreshPosts () {
       var newposts = []
-      $.get( url, function(){
-        //get new posts
-        //save them to variable
+      $.getJSON( '/refreshPosts' ).done( function( posts ){
+          newposts = posts.map( function( post ){ if ( Date.parse( post.date ) >  })
         })
       newposts.forEach( function(element){
         $('.posts').append('<li>').html( element.content );
-      }
+      });
     }
+    // window.setInterval(refreshPosts, 10000);
 
-    window.setInterval(refreshPosts, 10000);
 
 
 

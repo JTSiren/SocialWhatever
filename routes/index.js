@@ -16,11 +16,12 @@ router.get('/', function(req, res, next) {
     var user = {};
 
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-      user = JSON.parse( data )[req.cookies.username];
 
-      console.log( 'here is the user im passing to the index jade template: ', user );  
-      res.render('index', { username: user.username, posts: user.posts } );
-
+      data = JSON.parse( data ) 
+      users = data.Users
+      user = users[req.cookies.username];
+      console.log( 'here is the user im passing to the index jade template: ', user )
+      res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother } );
     });
     
   }
@@ -28,11 +29,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function( req, res, next ){
-  
+  console.log( 'running the login route!' )
   if ( req.cookies.logged ){
+    console.log( 'i think you have cookies!' )
     res.redirect('/');
   }
   else {
+    console.log( 'i admit you have no cookies! ill try to render login')
     res.render('login', { error: '' } );
   }
 });
@@ -43,7 +46,8 @@ router.post('/login', function(req, res, next){
   
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
     data = JSON.parse(data);
-    if( data[username] ){
+    users = data.Users
+    if( users[username] ){
       res.cookie( 'logged' , true );
       res.cookie( 'username', username );
       res.redirect('/');
@@ -59,7 +63,8 @@ router.post('/register', function(req, res){
 
     var username = req.body.username;
 
-    var users = JSON.parse( data );
+    var data = JSON.parse( data );
+    var users = data.Users
 
     if ( users[username] === undefined ){
       users[username]={
@@ -69,8 +74,8 @@ router.post('/register', function(req, res){
       };
     }
 
-    users = JSON.stringify(users);
-    fs.writeFile( __dirname + '/users.json', users );
+    data = JSON.stringify(data);
+    fs.writeFile( __dirname + '/users.json', data );
 
     res.cookie( 'logged' , true );
     res.cookie( 'username', username );
@@ -78,20 +83,16 @@ router.post('/register', function(req, res){
   }); //end readFile callback
 });// end /register post
 
-router.post('/logout', function(req, res, next){
+router.get('/logout', function(req, res, next){
   console.log( 'the logout post is being recieved!' );
   console.log( 'cookies as read from the button post: ', req.cookies ); 
   res.clearCookie('logged', {path: '/'});
   res.clearCookie('username', {path: '/'});
-  //res.render('index'); //IF THIS ISN'T HERE, THE COOKIES STAY, WHY?
+  res.redirect('/'); //IF THIS ISN'T HERE, THE COOKIES STAY, WHY?
   /*I NEED TO RENDER A NEW PAGE AFTER DELETING THE COOKIES!*/
   //next();
 }); //end /logout post
 
-// router.get('/', function(req, res, next){
-//   console.log('im  the "next" thing, running now!')
-//   res.render('index');
-// })
 
 router.post('/post', function(req, res, next){
 
@@ -102,14 +103,18 @@ router.post('/post', function(req, res, next){
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
     //console.log('read working?');
 
-  users = JSON.parse( data );
+  data = JSON.parse( data );
+  users = data.Users
+
   var user = users[req.cookies.username];
   // console.log('after parse', users)
   var posts = user.posts;
 
   var post  = {
+    username: user.username,
     content: req.body.content,
     date: new Date(),
+    timeStamp: Date.parse(date)
     favorited: false
   };
 
@@ -120,11 +125,28 @@ router.post('/post', function(req, res, next){
   //console.log("posts is ", posts);
 
   
-    
-  users = JSON.stringify(users, null, 4);
-  // console.log('after stringify', users)
-  fs.writeFile( __dirname + '/users.json', users );
+  data.Mother.unshift( post );
+  data = JSON.stringify(data, null, 4);
+  fs.writeFile( __dirname + '/users.json', data );
+
   });
 });
 
+router.get('/refreshPosts', function( req, res, next ){
+  console.log( 'Im running the refreshPosts route!' );
+  fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+    allPosts = data.Mother;
+    console.log( 'heres what i think allPosts is: ', allPosts );
+    res.send( allPosts );
+  });
+})
+
+
+
+
 module.exports = router;
+
+
+
+
+
