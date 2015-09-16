@@ -1,38 +1,13 @@
 {
+  "Mother": {},
+  "Users": {
     "Matt": {
         "username": "Matt",
         "posts": [
             {
-<<<<<<< HEAD
-                "content": "a third!",
-                "date": "",
-                "favorited": true
-            },
-            {
-                "content": "a third!",
-                "date": "",
-                "favorited": true
-            },
-            {
-                "content": "another post",
-                "date": "",
-                "favorited": true
-            },
-            {
-                "content": "cmon baby",
-=======
-                "content": "this will be matt's third post!",
->>>>>>> 311e0e24d7807300ccd2732621de7f47ac8382d6
-                "date": "",
-                "favorited": true
-            },
-            {
-                "content": "cmon baby",
-                "date": "09/16/2015"
-            },
-            {
-                "content": "now we're cookin",
-                "date": "09/16/2015"
+                "content": "does this break when I make it realy long? Like reaaly really long.",
+                "date": "2015-09-16T21:02:17.150Z",
+                "favorited": false
             }
         ],
         "favs": []
@@ -42,4 +17,5 @@
         "posts": [],
         "favs": []
     }
+  }
 }
