@@ -17,8 +17,8 @@ router.get('/', function(req, res, next) {
 
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
 
-      data = JSON.parse( data ) 
-      users = data.Users
+      data = JSON.parse( data );
+      users = data.Users;
       user = users[req.cookies.username];
       console.log( 'here is the user im passing to the index jade template: ', user )
       res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother } );
@@ -114,7 +114,6 @@ router.post('/post', function(req, res, next){
     username: user.username,
     content: req.body.content,
     date: new Date(),
-    timeStamp: Date.parse(date)
     favorited: false
   };
 
@@ -134,9 +133,11 @@ router.post('/post', function(req, res, next){
 
 router.get('/refreshPosts', function( req, res, next ){
   console.log( 'Im running the refreshPosts route!' );
+  
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-    allPosts = data.Mother;
-    console.log( 'heres what i think allPosts is: ', allPosts );
+    //console.log( 'this is the refresh post readFile data: ', data);
+    allPosts = JSON.parse(data).Mother;
+    //console.log( 'heres what i think allPosts is: ', allPosts );
     res.send( allPosts );
   });
 })
