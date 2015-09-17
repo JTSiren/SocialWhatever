@@ -14,9 +14,10 @@ html
       ul.nav.nav-pills
         li Home
         li Profile
-        li Messages
+        li Favorites
         li
-          button#logout(type="submit" formaction="/logout") logout
+          form(action="/logout" method='GET')
+            input#logout( type="submit" value="logout" )
         li.pull-right
           form.navbar-form(role="search")
             .form-group
@@ -28,12 +29,12 @@ html
     footer
       p &copy; Social Whatever 2015
 
-    script(type='text/javascript').
-      $('#logout').click( function(event){
-          //console.log( '$(this): ', $(this) );
-          //console.log( '$(this) formatction attribute: ', $(this).attr('formaction'))
-          var url = $(this).attr('formaction');
-          $.post(url, function(){console.log('deleted the cookies!' )});
-        });
+    //- script(type='text/javascript').
+    //-   $('#logout').click( function(event){
+    //-       //console.log( '$(this): ', $(this) );
+    //-       //console.log( '$(this) formatction attribute: ', $(this).attr('formaction'))
+    //-       //var url = $(this).attr('formaction');
+    //-       $.get('/logout', function(){console.log('deleted the cookies!' )});
+    //-     });
 
 

@@ -1,10 +1,399 @@
-<<<<<<< HEAD
 
-{"a":"b","Matt":{"posts":{},"favs":{}},"Mark Hamill":{"posts":{},"favs":{}} }
-
-=======
 {
-  "Matt": {"username": "Matt", "posts":[],"favs":[]} , 
-  "Mark Hamill": {"username": "Mark Hamill", "posts":[],"favs":[] } 
+
+    "Mother": [
+        {
+            "username": "Judy",
+            "content": "I'm a judge",
+            "date": "2015-09-17T06:36:50.389Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "This is awesome!",
+            "date": "2015-09-17T03:36:20.700Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "here's apost",
+            "date": "2015-09-16T23:54:58.762Z",
+            "favorited": false
+        },
+        {
+            "username": "Mark Hamill",
+            "content": "where's chew",
+            "date": "2015-09-16T23:49:05.688Z",
+            "favorited": false
+        },
+        {
+            "username": "Mark Hamill",
+            "content": "dammit yoda",
+            "date": "2015-09-16T23:47:06.933Z",
+            "favorited": false
+        },
+        {
+            "username": "Mark Hamill",
+            "content": "use the force",
+            "date": "2015-09-16T23:39:53.098Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "It works yo",
+            "date": "2015-09-16T23:39:28.331Z",
+            "favorited": false
+        },
+        {
+            "username": "Alfred Pennyworth",
+            "content": "Indubitably",
+            "date": "2015-09-16T23:39:00.968Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "yay oppsts",
+            "date": "2015-09-16T23:38:46.401Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "yay",
+            "date": "2015-09-16T23:38:13.969Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "please work",
+            "date": "2015-09-16T23:38:10.268Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "it's so easy",
+            "date": "2015-09-16T23:38:00.575Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "update this",
+            "date": "2015-09-16T23:37:51.498Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "yay oppsts",
+            "date": "2015-09-16T23:36:46.397Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "yay",
+            "date": "2015-09-16T23:36:13.965Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "please work",
+            "date": "2015-09-16T23:36:10.351Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "here's a new post",
+            "date": "2015-09-16T23:22:19.847Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "here's a new post",
+            "date": "2015-09-16T23:20:19.836Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "mnbkmb",
+            "date": "2015-09-16T23:18:54.806Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "asmnfbmnb",
+            "date": "2015-09-16T23:15:11.422Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "nbhjb",
+            "date": "2015-09-16T23:13:59.733Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "askdfhkhj",
+            "date": "2015-09-16T23:12:46.528Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "This is a blank box test",
+            "date": "2015-09-16T23:11:24.265Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "This is an async test!",
+            "date": "2015-09-16T23:10:38.756Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "Another post!",
+            "date": "2015-09-16T22:57:52.742Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "A post!",
+            "date": "2015-09-16T22:41:00.712Z",
+            "favorited": false
+        },
+        {
+            "username": "Joe",
+            "content": "This looks great!",
+            "date": "2015-09-16T22:09:29.613Z",
+            "favorited": false
+        },
+        {
+            "username": "Alfred Pennyworth",
+            "content": "Batcave clean...I mean! Bat manor! I mean...just the manor...",
+            "date": "2015-09-16T22:04:07.040Z",
+            "favorited": false
+        },
+        {
+            "username": "Alfred Pennyworth",
+            "content": "Batcave clean...I mean! Bat manor! I mean...just the manor...",
+            "date": "2015-09-16T22:02:07.029Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "This is the first post...EVER!",
+            "date": "2015-09-16T21:26:08.887Z",
+            "favorited": false
+        }
+    ],
+    "Users": {
+        "Matt": {
+            "username": "Matt",
+            "posts": [
+                {
+                    "username": "Matt",
+                    "content": "This is awesome!",
+                    "date": "2015-09-17T03:36:20.700Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "here's apost",
+                    "date": "2015-09-16T23:54:58.762Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "yay oppsts",
+                    "date": "2015-09-16T23:38:46.401Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "yay",
+                    "date": "2015-09-16T23:38:13.969Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "please work",
+                    "date": "2015-09-16T23:38:10.268Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "it's so easy",
+                    "date": "2015-09-16T23:38:00.575Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "update this",
+                    "date": "2015-09-16T23:37:51.498Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "yay oppsts",
+                    "date": "2015-09-16T23:36:46.397Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "yay",
+                    "date": "2015-09-16T23:36:13.965Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "please work",
+                    "date": "2015-09-16T23:36:10.351Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "here's a new post",
+                    "date": "2015-09-16T23:22:19.847Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "here's a new post",
+                    "date": "2015-09-16T23:20:19.836Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "This is the first post...EVER!",
+                    "date": "2015-09-16T21:26:08.887Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Mark Hamill": {
+            "username": "Mark Hamill",
+            "posts": [
+                {
+                    "username": "Mark Hamill",
+                    "content": "where's chew",
+                    "date": "2015-09-16T23:49:05.688Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Mark Hamill",
+                    "content": "dammit yoda",
+                    "date": "2015-09-16T23:47:06.933Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Mark Hamill",
+                    "content": "use the force",
+                    "date": "2015-09-16T23:39:53.098Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Alfred Pennyworth": {
+            "username": "Alfred Pennyworth",
+            "posts": [
+                {
+                    "username": "Alfred Pennyworth",
+                    "content": "Indubitably",
+                    "date": "2015-09-16T23:39:00.968Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Alfred Pennyworth",
+                    "content": "Batcave clean...I mean! Bat manor! I mean...just the manor...",
+                    "date": "2015-09-16T22:04:07.040Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Alfred Pennyworth",
+                    "content": "Batcave clean...I mean! Bat manor! I mean...just the manor...",
+                    "date": "2015-09-16T22:02:07.029Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Joe": {
+            "username": "Joe",
+            "posts": [
+                {
+                    "username": "Joe",
+                    "content": "It works yo",
+                    "date": "2015-09-16T23:39:28.331Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "mnbkmb",
+                    "date": "2015-09-16T23:18:54.806Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "asmnfbmnb",
+                    "date": "2015-09-16T23:15:11.422Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "nbhjb",
+                    "date": "2015-09-16T23:13:59.733Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "askdfhkhj",
+                    "date": "2015-09-16T23:12:46.528Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "This is a blank box test",
+                    "date": "2015-09-16T23:11:24.265Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "This is an async test!",
+                    "date": "2015-09-16T23:10:38.756Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "Another post!",
+                    "date": "2015-09-16T22:57:52.742Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "A post!",
+                    "date": "2015-09-16T22:41:00.712Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Joe",
+                    "content": "This looks great!",
+                    "date": "2015-09-16T22:09:29.613Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Judy": {
+            "username": "Judy",
+            "posts": [
+                {
+                    "username": "Judy",
+                    "content": "I'm a judge",
+                    "date": "2015-09-17T06:36:50.389Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        }
+    }
 }
->>>>>>> ada5dd5af0a7c20f8603089c378fd7203cbbe562
+
