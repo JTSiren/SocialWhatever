@@ -129,7 +129,7 @@ router.post('/post', function(req, res, next){
   data.Mother.unshift( post );
   data = JSON.stringify(data, null, 4);
   fs.writeFile( __dirname + '/users.json', data );
-
+    res.send();
   });
 });
 
@@ -184,11 +184,35 @@ router.get('/users', function(req, res, next) {
       data = JSON.parse( data );
       var users = data.Users;
       var names = Object.keys(users).sort();
-      res.render('who', { users:names} );
+      user = users[req.cookies.username];
+      res.render('who', { users:names, username: user.username} );
       
     });    
   }
 });
+
+router.get('/search', function(req,res,next){
+  var arry = [];
+  
+  fs.readFile(__dirname + '/users.json', 'utf8', function(err, data){
+    
+    data = JSON.parse( data );
+    // var searchresults = 
+    
+  });
+  
+});
+
+
+// router.get('/search', function( req, res, next ){
+//   console.log("i did a search");
+//   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+//     //console.log( 'this is the refresh post readFile data: ', data);
+//     allPosts = JSON.parse(data).Mother;
+//     //console.log( 'heres what i think allPosts is: ', allPosts );
+//     res.send( allPosts );
+//   });
+// });
 
 
 module.exports = router;

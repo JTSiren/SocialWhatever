@@ -1,0 +1,10 @@
+extends layout
+
+block content
+
+h1 I Can't Believe It's Not Twitter!
+h3 Search Results
+
+ul.posts
+  each post in posts
+    li= username + ' said - "' + post.content + '" at ' + post.date

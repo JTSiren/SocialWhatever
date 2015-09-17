@@ -13,15 +13,19 @@ html
   body
     nav
       ul.nav.nav-pills
-        li Home
-        li Profile
-        li Favorites
-        li Users
+        li 
+          a(href="/") Home
+        li
+          a(href="/user/" + username) Profile
+        li 
+          a(href="/fav") Favorites
+        li 
+          a(href="/users") Users
         li
           form(action="/logout" method='GET')
             input#logout( type="submit" value="logout" )
         li.pull-right
-          form.navbar-form(role="search")
+          form.navbar-form(id="searchbar" role="search" method="GET")
             .form-group
               input.form-control(type="text", placeholder="Search")
               button.btn.btn-default(type="submit") Submit
@@ -31,12 +35,21 @@ html
     footer
       p &copy; Social Whatever 2015
 
-    //- script(type='text/javascript').
-    //-   $('#logout').click( function(event){
-    //-       //console.log( '$(this): ', $(this) );
-    //-       //console.log( '$(this) formatction attribute: ', $(this).attr('formaction'))
-    //-       //var url = $(this).attr('formaction');
-    //-       $.get('/logout', function(){console.log('deleted the cookies!' )});
+    //- script.
+    //-   $(document).ready(function(){
+    //-     $('#searchbar').submit(function(event){
+    //-       console.log("please say somethinggfjcjg");
+    //-       event.preventDefault();
+    //-       console.log("please say something");
+    //-       var searchdata = [];
+    //-       var $searchtext = $('#searchbar').val();
+    //-       $.get('/search', function( req, res, next ){
+    //-         
+    //-       }).done(function(posts){
+    //-         
+    //-         });
+    //-       
     //-     });
-
+    //-     
+    //-   })
 
