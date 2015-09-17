@@ -47,7 +47,7 @@ block content
             if ( post ){
               $('.allPosts')
                 .prepend( 
-                  $('<li>').html( post.username + ' - ' + post.content + ' at ' + post.date ) 
+                  $('<li>').html( post.username + ' said - "' + post.content + '"" at ' + post.date ) 
                 )
             }
           });
