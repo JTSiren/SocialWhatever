@@ -1,6 +1,12 @@
 {
     "Mother": [
         {
+            "username": "Judy",
+            "content": "I'm a judge",
+            "date": "2015-09-17T06:36:50.389Z",
+            "favorited": false
+        },
+        {
             "username": "Matt",
             "content": "This is awesome!",
             "date": "2015-09-17T03:36:20.700Z",
@@ -369,6 +375,18 @@
                     "username": "Joe",
                     "content": "This looks great!",
                     "date": "2015-09-16T22:09:29.613Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Judy": {
+            "username": "Judy",
+            "posts": [
+                {
+                    "username": "Judy",
+                    "content": "I'm a judge",
+                    "date": "2015-09-17T06:36:50.389Z",
                     "favorited": false
                 }
             ],

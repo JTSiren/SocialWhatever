@@ -2,9 +2,7 @@ extends layout
 
 block content
   h1 I Can't Believe It's Not Twitter!
-  h3 Hello, #{username}. 
-  form#post(action="/post", type="POST")
-    input#text(type="text" placeholder="What do you have to say?" size="80" maxlength="240")
+  h3 Posts by #{username}. 
 
   ul.allPosts
     each post in allPosts

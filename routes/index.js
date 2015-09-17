@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
       data = JSON.parse( data );
       users = data.Users;
       user = users[req.cookies.username];
-      console.log( 'here is the user im passing to the index jade template: ', user )
+      console.log( 'here is the user im passing to the index jade template: ', user );
       res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother } );
     });
     
@@ -29,13 +29,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function( req, res, next ){
-  console.log( 'running the login route!' )
+  console.log( 'running the login route!' );
   if ( req.cookies.logged ){
-    console.log( 'i think you have cookies!' )
+    console.log( 'i think you have cookies!' );
     res.redirect('/');
   }
   else {
-    console.log( 'i admit you have no cookies! ill try to render login')
+    console.log( 'i admit you have no cookies! ill try to render login');
     res.render('login', { error: '' } );
   }
 });
@@ -46,7 +46,7 @@ router.post('/login', function(req, res, next){
   
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
     data = JSON.parse(data);
-    users = data.Users
+    users = data.Users;
     if( users[username] ){
       res.cookie( 'logged' , true );
       res.cookie( 'username', username );
@@ -63,8 +63,8 @@ router.post('/register', function(req, res){
 
     var username = req.body.username;
 
-    var data = JSON.parse( data );
-    var users = data.Users
+    data = JSON.parse( data );
+    var users = data.Users;
 
     if ( users[username] === undefined ){
       users[username]={
@@ -104,7 +104,7 @@ router.post('/post', function(req, res, next){
     //console.log('read working?');
 
   data = JSON.parse( data );
-  users = data.Users
+  users = data.Users;
 
   var user = users[req.cookies.username];
   // console.log('after parse', users)
@@ -140,7 +140,7 @@ router.get('/refreshPosts', function( req, res, next ){
     //console.log( 'heres what i think allPosts is: ', allPosts );
     res.send( allPosts );
   });
-})
+});
 
 
 
