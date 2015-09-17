@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 
 {"a":"b","Matt":{"posts":{},"favs":{}},"Mark Hamill":{"posts":{},"favs":{}} }
 
+=======
+{
+  "Matt": {"username": "Matt", "posts":[],"favs":[]} , 
+  "Mark Hamill": {"username": "Mark Hamill", "posts":[],"favs":[] } 
+}
+>>>>>>> ada5dd5af0a7c20f8603089c378fd7203cbbe562

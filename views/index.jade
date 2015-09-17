@@ -1,5 +1,32 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 #{username}
+  
+  h1 Posts
+  form#post(action="/post", type="POST")
+    input(type="text")
+
+  ul.posts
+    li.post #{posts}
+    li.post
+    li.post
+
+  ul.favorites
+    li.favorite #{favorites}
+    li.favorite
+    li.favorite
+
+  script(type='text/javascript').
+    $('#post').submit( function(event){
+        event.preventDefault();
+        console.log( '$(this): ', $(this) );
+        console.log( '$(this) action attribute: ', $(this).attr('action'))
+        var url = $(this).attr('action');
+        var content = { content: $(this).children('input').val() };
+        console.log( 'the form content: ', content)
+
+        $.post(url, content, function(response){ 
+          console.log('I wrote a post!' );
+        });
+      });

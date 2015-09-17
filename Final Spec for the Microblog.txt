@@ -13,12 +13,24 @@ set a cookie for a logged-in user in order to keep them logged in
 Create a log out button that deletes cookies.
 
 allow a user to make posts, without reloading the page
+
+use ajax to post! 
+	this will leave the client on the browser?
+	$.ajax with a post 
 	
 	
 	There will be a homepage - when you log in, go to the homepage.
 		Homepage-
 			text area
 			submit button
+
+
+var formData = $(this).serialize();
+$.post(url, formData, function(response){
+	$("#signup").html("<p>Thanks for Signing Up!</p>");
+	
+});// end post
+
 
 
 
