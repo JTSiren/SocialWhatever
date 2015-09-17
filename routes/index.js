@@ -18,7 +18,8 @@ router.get('/', function(req, res, next) {
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
 
       data = JSON.parse( data );
-      users = data.Users;
+      var users = data.Users;
+      // console.log('users obj is', users);
       user = users[req.cookies.username];
       console.log( 'here is the user im passing to the index jade template: ', user );
       res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother } );
@@ -27,6 +28,7 @@ router.get('/', function(req, res, next) {
   }
 
 });
+
 
 router.get('/login', function( req, res, next ){
   console.log( 'running the login route!' );
@@ -46,7 +48,7 @@ router.post('/login', function(req, res, next){
   
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
     data = JSON.parse(data);
-    users = data.Users;
+    var users = data.Users;
     if( users[username] ){
       res.cookie( 'logged' , true );
       res.cookie( 'username', username );
@@ -142,7 +144,51 @@ router.get('/refreshPosts', function( req, res, next ){
   });
 });
 
+router.get('/user/:username', function(req, res, next) {
+  if ( req.cookies.logged === undefined ){
+    res.redirect('/login');
+  }
 
+  else {
+    var user = {};
+
+    fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+
+      data = JSON.parse( data );
+      var users = data.Users;
+      console.log('the users obj is', users);
+      // user = users[req.cookies.username];
+      // console.log('what is the username', req.params.username);
+      user = users[req.params.username];
+      console.log( 'here is the user im passing to the index jade template: ', user );
+      console.log('posts are: ', user.posts);
+      console.log('username is: ', user.username);
+      res.render('profile', { username: user.username, posts: user.posts} );
+      
+    });
+    
+  }
+
+});
+
+router.get('/users', function(req, res, next) {
+  if ( req.cookies.logged === undefined ){
+    res.redirect('/login');
+  }
+
+  else {
+    var user = {};
+
+    fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+
+      data = JSON.parse( data );
+      var users = data.Users;
+      var names = Object.keys(users).sort();
+      res.render('who', { users:names} );
+      
+    });    
+  }
+});
 
 
 module.exports = router;
