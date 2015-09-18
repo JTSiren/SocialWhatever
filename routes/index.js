@@ -17,8 +17,8 @@ router.get('/', function(req, res, next) {
 
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
 
-      data = JSON.parse( data );
-      users = data.Users;
+      var data = JSON.parse( data );
+      var users = data.Users;
       user = users[req.cookies.username];
       console.log( 'here is the user im passing to the index jade template: ', user );
       res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother } );
@@ -95,9 +95,9 @@ router.get('/logout', function(req, res, next){
 
 
 router.post('/post', function(req, res, next){
-
-
-  //console.log( 'this is the request object body: ', req.body.content );
+  console.log('for some reason i decided to run the /post route!')
+  console.trace();
+  console.log( 'this is the request object body: ', req.body.content );
   var users = {};
   //console.log(users);
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
@@ -127,7 +127,7 @@ router.post('/post', function(req, res, next){
   data.Mother.unshift( post );
   data = JSON.stringify(data, null, 4);
   fs.writeFile( __dirname + '/users.json', data );
-
+    res.send('successfully added your post! nice one');
   });
 });
 

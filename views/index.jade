@@ -28,8 +28,7 @@ block content
           //console.log( '$(this) action attribute: ', $(this).attr('action'))
           //console.log( 'the form content: ', content)
 
-
-          //console.log('I wrote a post!' );
+          console.log('I wrote this post: ', content );
         });
 
       function refreshPosts () {
@@ -39,6 +38,9 @@ block content
             newposts = posts.map( function( post ){ 
               //console.log( 'this is a post that im mapping over: ', post);
               if ( Date.parse( post.date ) >  timestamp ){
+                  console.log( 'timestamp, ', timestamp );
+                  console.log( 'post.date, ', post.date );
+                  console.log( 'parsed date, ', Date.parse( post.date ) );
                   return post;
                 }
             }); //END OF MAP FUNCTION
@@ -55,7 +57,6 @@ block content
           console.log('timestamp is now: ', timestamp);
           }); //END OF DONE CALLBACK
       } //END OF REFRESH FUNCTION
-      
       window.setInterval(refreshPosts, 5000);
     });
 
