@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 I Can't Believe It's Not Twitter!
+  h3 All Registered Users: 
+
+  ul.users
+    each user in users
+      li
+      a(href="/user/"+user)= user
+
+
+
+
+

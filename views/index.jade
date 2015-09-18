@@ -2,13 +2,22 @@ extends layout
 
 block content
   h1 I Can't Believe It's Not Twitter!
-  h3 Hello, #{username}. 
-  form#post(action="/post", type="POST")
-    input#text(type="text" placeholder="What do you have to say?" size="80" maxlength="240")
+  div
+    h3 Hello, #{username}. 
+    form#post(action="/post", type="POST")
+      input#text(type="text" placeholder="What do you have to say?" size="80" maxlength="240")
 
   ul.allPosts
     each post in allPosts
-      li= post.username + ' said - "' + post.content + '" at ' + post.date
+      div(class="postfield")
+        li(class="postlist")
+          div
+            a.pull-left(href="/user/"+ post.username)= post.username + " "
+            p(class="postline")=' said - "' + post.content + '"'
+              div(class="time")= 'at ' + post.date
+                div
+                  button.btn.btn-default(type="submit") Favorite
+                  button.btn.btn-default(type="submit") Delete
 
   script(type='text/javascript').
     $( document ).ready( function(){
@@ -24,12 +33,6 @@ block content
           
           $.post(url, content, function(response){ 
           });
-          //console.log( '$(this): ', $(this) );
-          //console.log( '$(this) action attribute: ', $(this).attr('action'))
-          //console.log( 'the form content: ', content)
-
-
-          //console.log('I wrote a post!' );
         });
 
       function refreshPosts () {
@@ -42,12 +45,21 @@ block content
                   return post;
                 }
             }); //END OF MAP FUNCTION
+            newposts=newposts.reverse();
           //console.log('this is newposts after the map function: ', newposts);
           newposts.forEach( function(post) {
             if ( post ){
               $('.allPosts')
                 .prepend( 
-                  $('<li>').html( post.username + ' said - "' + post.content + '"" at ' + post.date ) 
+                  $('<li class="postfield">').html("<a href='/user/" + post.username + "'> "+ post.username + "</a>" + " " +' said - "' + post.content + '"')
+                    .append(
+                      $('<div class="time">').html('at ' + post.date)
+                        .append(
+                          $('<div>')
+                            .append($('<button class="btn btn-default" type="submit">Favorite</button>'))
+                            .append($('<button class="btn btn-default" type="submit">Delete</button>'))
+                        )
+                    )
                 )
             }
           });

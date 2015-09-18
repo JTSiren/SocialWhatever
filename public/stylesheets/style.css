@@ -8,10 +8,32 @@ a {
   color: #00B7FF;
 }
 
+.time{
+  margin: 0 30px;
+  color: grey;
+}
+
+.postline{
+  margin: 0px 45px;
+}
+
+.postfield{
+  background-color: #99CCFF;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 1%;
+  }
+
+li{
+  list-style-type: none;
+}
+  
 .nav.nav-pills{
+  border-radius: 10px;
   background-color: lightgreen;
   font-size: 20px;
   margin-top: -40px;  
+  
 }
 
 #text {
@@ -26,4 +48,11 @@ footer {
   left: 0;
   background-color: white;
   text-align: center;
+}
+
+#logout{
+  background-color: lightyellow;
+  border-radius: 10px;
+  margin-top: 8px;
+  margin-right: 10px;
 }
