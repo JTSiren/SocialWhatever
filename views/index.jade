@@ -17,7 +17,7 @@ block content
               p= 'at ' + post.date
               div
                 button.btn.btn-default(type="submit" class="favorite") Favorite
-                  span(class="glyphicon glyphicon-heart" aria-hidden="true")
+                  span(class="glyphicon" aria-hidden="true")
                 button.btn.btn-default(type="submit" class="share") Share
                   span(class="glyphicon glyphicon-share" aria-hidden="true")
                 if post.username === user['username']
@@ -56,28 +56,58 @@ block content
                 }
             }); //END OF MAP FUNCTION
             newposts=newposts.reverse();
-          //console.log('this is newposts after the map function: ', newposts);
-          newposts.forEach( function(post) {
-            if ( post ){
-              $('.allPosts')
-                .prepend( 
-                  $('<li class="postfield">').html("<a href='/user/" + post.username + "'> "+ post.username + "</a>" + " " +' said - "' + post.content + '"')
-                    .append(
-                      $('<div class="time">').html('at ' + post.date)
-                        .append(
-                          $('<div>')
-                            .append($('<button class="btn btn-default" type="submit">Favorite</button>'))
-                            .append($('<button class="btn btn-default" type="submit">Delete</button>'))
-                        )
-                    )
-                )
-            }
-          });
-          timestamp = Date.now();
-          console.log('timestamp is now: ', timestamp);
+            //console.log('this is newposts after the map function: ', newposts);
+            console.log( 'the done callback is running' )
+            newposts.forEach( function(post) {
+               console.log('post is ', post)
+              if ( post ){
+                console.log( 'condition is met! ', true )
+                $postList = $('<li class="postlist">');
+                  $postField = $('<div class="postfield">');
+                    $userName = $('<a class="pull-left" href="/user/' + post.username + '">').html( post.username + " " );
+                    
+                    $postLine = $('<p class="postline">').html('said - "' + post.content + '"');
+                      
+                    $timeDiv = $('<div class="time">')
+                      $postDate = $('<p>').html('at ' + post.date);
+                      
+                      $buttonDiv = $('<div>');
+                        $deleteButton = $('<button class="btn btn-default remove" type="submit" action="/delete" method="POST">').html('Delete');
+                          $deleteGlyph = $('<span class="glyphicon glyphicon-remove" aria-hidden="true">')
+                        $favoriteButton = $('<button class="btn btn-default favorite" type="submit">').html('Favorite');
+                          $faveGlyph = $('<span class="glyphicon" aria-hidden="true">')
+                
+                //make buttons
+                $favoriteButton.append($faveGlyph)
+                $deleteButton.append($deleteGlyph)
+
+                //contain buttons
+                $buttonDiv.append($favoriteButton)
+                $buttonDiv.append($deleteButton)
+
+                //contain buttondiv and postdate
+                $timeDiv.append($postDate)
+                $timeDiv.append($buttonDiv)
+
+                //build Postfield
+                $postField.append($userName)
+                $postField.append($postLine)
+                $postField.append($timeDiv)
+                
+                //build the listItem
+                $postList.append($postField)
+
+                $('.allPosts').prepend($postList)
+              }
+            });
+            
+            $('.remove').click( deletePost );
+            
+            timestamp = Date.now();
+            console.log('timestamp is now: ', timestamp);
           }); //END OF DONE CALLBACK
       } //END OF REFRESH FUNCTION
-      //window.setInterval(refreshPosts, 5000);
+      window.setInterval(refreshPosts, 5000);
 
       function deletePost ( event ) {
         console.log( 'Ive been told to delete this!\n===========================' )

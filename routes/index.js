@@ -224,8 +224,8 @@ router.post( '/delete', function(request, response){
 
   // go read the json
  fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-    //console.log( 'the data is currently a(n): ', typeof data );
-   
+    console.log( 'the data is currently a(n): ', typeof data );
+    console.log( 'the data is: ', data)
     data = JSON.parse( data);
    
     //console.log( 'it looks like this now: ', data );
@@ -279,6 +279,10 @@ router.post( '/delete', function(request, response){
   //delete post object
   // writeFile back with new smaller object
   // res.send('you did it!')
+});
+
+router.post( '/favorite', function(request, response){
+
 });
 
 module.exports = router;

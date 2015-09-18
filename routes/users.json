@@ -1,6 +1,18 @@
 {
     "Mother": [
         {
+            "username": "Matt",
+            "content": "Hello",
+            "date": "2015-09-18T23:25:11.811Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "Ta da!",
+            "date": "2015-09-18T23:23:14.014Z",
+            "favorited": false
+        },
+        {
             "username": "Jason",
             "content": "Favorite THIS. ",
             "date": "2015-09-18T18:45:35.960Z",
@@ -17,18 +29,6 @@
             "content": "whatever",
             "date": "2015-09-18T03:43:57.778Z",
             "favorited": false
-        },
-        {
-            "username": "Matt",
-            "content": "post2",
-            "date": "2015-09-18T03:03:56.942Z",
-            "favorited": false
-        },
-        {
-            "username": "Matt",
-            "content": "post1",
-            "date": "2015-09-18T03:03:36.550Z",
-            "favorited": false
         }
     ],
     "Users": {
@@ -37,14 +37,14 @@
             "posts": [
                 {
                     "username": "Matt",
-                    "content": "post2",
-                    "date": "2015-09-18T03:03:56.942Z",
+                    "content": "Hello",
+                    "date": "2015-09-18T23:25:11.811Z",
                     "favorited": false
                 },
                 {
                     "username": "Matt",
-                    "content": "post1",
-                    "date": "2015-09-18T03:03:36.550Z",
+                    "content": "Ta da!",
+                    "date": "2015-09-18T23:23:14.014Z",
                     "favorited": false
                 }
             ],
