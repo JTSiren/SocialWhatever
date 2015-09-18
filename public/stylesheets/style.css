@@ -1,11 +1,11 @@
 body {
   padding: 50px;
-  background-color: lightblue;
+  background-color: #BC96FF;
   font: 20px "Lobster", sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #7019FF;
 }
 
 .time{
@@ -27,8 +27,10 @@ a {
   box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
   }
 
+
 li{
   list-style-type: none;
+
 }
   
 .nav.nav-pills{
@@ -73,3 +75,4 @@ button span{
 
 
 }
+
