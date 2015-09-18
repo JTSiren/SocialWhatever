@@ -29,6 +29,7 @@ li{
 }
   
 .nav.nav-pills{
+  border-radius: 10px;
   background-color: lightgreen;
   font-size: 20px;
   margin-top: -40px;  

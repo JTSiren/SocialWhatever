@@ -51,7 +51,7 @@ block content
             if ( post ){
               $('.allPosts')
                 .prepend( 
-                  $('<li class="postfield">').html("<a href='/user/' + post.username>"+ post.username + "</a>" + " " +' said - "' + post.content + '"')
+                  $('<li class="postfield">').html("<a href='/user/" + post.username + "'> "+ post.username + "</a>" + " " +' said - "' + post.content + '"')
                     .append(
                       $('<div class="time">').html('at ' + post.date)
                         .append(

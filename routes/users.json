@@ -2,56 +2,20 @@
     "Mother": [
         {
             "username": "Jack",
-            "content": "post9",
-            "date": "2015-09-18T02:38:55.920Z",
+            "content": "Post3",
+            "date": "2015-09-18T03:04:12.676Z",
             "favorited": false
         },
         {
-            "username": "Jack",
-            "content": "post8",
-            "date": "2015-09-18T02:37:51.351Z",
-            "favorited": false
-        },
-        {
-            "username": "Jack",
-            "content": "post7",
-            "date": "2015-09-18T02:37:35.437Z",
-            "favorited": false
-        },
-        {
-            "username": "Jack",
-            "content": "post6",
-            "date": "2015-09-18T02:37:09.645Z",
-            "favorited": false
-        },
-        {
-            "username": "Jack",
-            "content": "post5",
-            "date": "2015-09-18T02:35:47.582Z",
-            "favorited": false
-        },
-        {
-            "username": "Jack",
-            "content": "post4",
-            "date": "2015-09-18T02:35:14.198Z",
-            "favorited": false
-        },
-        {
-            "username": "Jack",
-            "content": "post3",
-            "date": "2015-09-18T02:33:31.612Z",
-            "favorited": false
-        },
-        {
-            "username": "Jack",
+            "username": "Matt",
             "content": "post2",
-            "date": "2015-09-18T02:15:51.352Z",
+            "date": "2015-09-18T03:03:56.942Z",
             "favorited": false
         },
         {
             "username": "Matt",
             "content": "post1",
-            "date": "2015-09-18T02:15:32.304Z",
+            "date": "2015-09-18T03:03:36.550Z",
             "favorited": false
         }
     ],
@@ -61,8 +25,14 @@
             "posts": [
                 {
                     "username": "Matt",
+                    "content": "post2",
+                    "date": "2015-09-18T03:03:56.942Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
                     "content": "post1",
-                    "date": "2015-09-18T02:15:32.304Z",
+                    "date": "2015-09-18T03:03:36.550Z",
                     "favorited": false
                 }
             ],
@@ -73,50 +43,8 @@
             "posts": [
                 {
                     "username": "Jack",
-                    "content": "post9",
-                    "date": "2015-09-18T02:38:55.920Z",
-                    "favorited": false
-                },
-                {
-                    "username": "Jack",
-                    "content": "post8",
-                    "date": "2015-09-18T02:37:51.351Z",
-                    "favorited": false
-                },
-                {
-                    "username": "Jack",
-                    "content": "post7",
-                    "date": "2015-09-18T02:37:35.437Z",
-                    "favorited": false
-                },
-                {
-                    "username": "Jack",
-                    "content": "post6",
-                    "date": "2015-09-18T02:37:09.645Z",
-                    "favorited": false
-                },
-                {
-                    "username": "Jack",
-                    "content": "post5",
-                    "date": "2015-09-18T02:35:47.582Z",
-                    "favorited": false
-                },
-                {
-                    "username": "Jack",
-                    "content": "post4",
-                    "date": "2015-09-18T02:35:14.198Z",
-                    "favorited": false
-                },
-                {
-                    "username": "Jack",
-                    "content": "post3",
-                    "date": "2015-09-18T02:33:31.612Z",
-                    "favorited": false
-                },
-                {
-                    "username": "Jack",
-                    "content": "post2",
-                    "date": "2015-09-18T02:15:51.352Z",
+                    "content": "Post3",
+                    "date": "2015-09-18T03:04:12.676Z",
                     "favorited": false
                 }
             ],
