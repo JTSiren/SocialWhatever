@@ -160,10 +160,15 @@ router.get('/user/:username', function(req, res, next) {
       var users = data.Users;
       console.log('the users obj is', users);
       // user = users[req.cookies.username];
-      // console.log('what is the username', req.params.username);
+      console.log('what is the username', req.params.username);
       user = users[req.params.username];
       
-      res.render('profile', { username: user.username, posts: user.posts} );
+      var usercook = users[req.cookies.username].username;
+      console.log('user is', user);
+      console.log('usercook is ' , usercook);
+      console.log(user.username);
+      
+      res.render('profile', { username: usercook, posts: user.posts} );
       
     });
     
