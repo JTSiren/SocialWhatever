@@ -77,9 +77,11 @@ router.post('/register', function(req, res){
     data = JSON.stringify(data);
     fs.writeFile( __dirname + '/users.json', data );
 
+
     res.cookie( 'logged' , true );
     res.cookie( 'username', username );
     res.redirect('/');
+
   }); //end readFile callback
 });// end /register post
 
@@ -92,6 +94,8 @@ router.get('/logout', function(req, res, next){
   /*I NEED TO RENDER A NEW PAGE AFTER DELETING THE COOKIES!*/
   //next();
 }); //end /logout post
+
+
 
 
 router.post('/post', function(req, res, next){
@@ -209,7 +213,6 @@ router.post('/search', function(req,res,next){
   });
   
 });
-
 
 module.exports = router;
 
