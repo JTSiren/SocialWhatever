@@ -193,21 +193,18 @@ router.get('/users', function(req, res, next) {
 
 router.post('/search', function(req,res,next){
   var arry = [];
-  console.log('i searched something');
   fs.readFile(__dirname + '/users.json', 'utf8', function(err, data){
     
     data = JSON.parse( data );
     var posts = data.Mother;
-    console.log("the req body is", req.body);
-    
+    var ser = req.body.search;
     posts.forEach(function(elem){
       element=elem.content.toLowerCase();
       if(element.indexOf(req.body.search.toLowerCase())>=0){
         arry.push(elem);
       }      
     });
-    console.log("before", arry);
-    res.render('search', {array:arry});
+    res.render('search', {array:arry, search:ser});
   });
   
 });
