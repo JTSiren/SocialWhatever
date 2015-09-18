@@ -6,7 +6,7 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // console.log( 'these are my current cookies: ', req.cookies );
+  console.log( 'these are my current cookies: ', req.cookies );
 
   if ( req.cookies.logged === undefined ){
     res.redirect('/login');
@@ -76,9 +76,11 @@ router.post('/register', function(req, res){
     data = JSON.stringify(data, null, 4);
     fs.writeFile( __dirname + '/users.json', data );
 
+
     res.cookie( 'logged' , true );
     res.cookie( 'username', username );
     res.redirect('/');
+
   }); //end readFile callback
 });// end /register post
 
@@ -91,6 +93,8 @@ router.get('/logout', function(req, res, next){
   /*I NEED TO RENDER A NEW PAGE AFTER DELETING THE COOKIES!*/
   //next();
 }); //end /logout post
+
+
 
 
 router.post('/post', function(req, res, next){
@@ -159,7 +163,6 @@ router.get('/user/:username', function(req, res, next) {
       user = users[req.params.username];
       
       res.render('profile', { username: user.username, posts: user.posts, activeUser: activeUser} );
-      
     });
     
   }
@@ -203,6 +206,7 @@ router.post('/search', function(req,res,next){
   
 });
 
+<<<<<<< HEAD
 router.post( '/delete', function(request, response){
 
   console.log( 'Im running the delete route!\n=======================')
@@ -262,14 +266,6 @@ router.post( '/delete', function(request, response){
   // writeFile back with new smaller object
   // res.send('you did it!')
 });
-
-
-
-
-
-
-
-
 
 module.exports = router;
 

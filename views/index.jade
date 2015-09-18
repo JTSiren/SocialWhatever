@@ -16,9 +16,13 @@ block content
             div(class="time")
               p= 'at ' + post.date
               div
-                button.btn.btn-default(action="/favorite", type="submit") Favorite
+                button.btn.btn-default(type="submit" class="favorite") Favorite
+                    span(class="glyphicon glyphicon-heart" aria-hidden="true")
+                button.btn.btn-default(type="submit" class="share") Share
+                    span(class="glyphicon glyphicon-share" aria-hidden="true")
                 if post.username === username
-                  button.btn.btn-default.remove(action="/delete", type="submit") Delete
+                  button.btn.btn-default(action='/delete', type="submit", method ='POST', class="remove") Delete
+                      span(class="glyphicon glyphicon-remove" aria-hidden="true")
 
   script(type='text/javascript').
     $( document ).ready( function(){
