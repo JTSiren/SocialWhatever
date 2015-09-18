@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
       var data = JSON.parse( data );
       var users = data.Users;
       user = users[req.cookies.username];
-      res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother} );
+      res.render('index', { user: user, posts: user.posts, allPosts: data.Mother, logged: req.cookies.username} );
     });
     
   }
@@ -35,7 +35,7 @@ router.get('/login', function( req, res, next ){
   }
   else {
     console.log( 'i admit you have no cookies! ill try to render login');
-    res.render('login', { error: '' } );
+    res.render('login', { error: '', logged: req.cookies.username } );
   }
 });
 
@@ -99,7 +99,6 @@ router.get('/logout', function(req, res, next){
 
 router.post('/post', function(req, res, next){
   console.log('for some reason i decided to run the /post route!')
-  console.trace();
   console.log( 'this is the request object body: ', req.body.content );
   var users = {};
   //console.log(users);
@@ -151,8 +150,6 @@ router.get('/user/:username', function(req, res, next) {
   }
 
   else {
-    var user = {};
-
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
 
       data = JSON.parse( data );
@@ -160,9 +157,21 @@ router.get('/user/:username', function(req, res, next) {
       console.log('the users obj is', users);
       var activeUser = users[req.cookies.username];
       // console.log('what is the username', req.params.username);
-      user = users[req.params.username];
+      var passiveUser = users[req.params.username];
+      console.log ( 'parameter: ', req.params );
+      console.log ( 'parameter.username: ', req.params.username );
+      console.log( 'passiveUser: ', passiveUser )
+      console.log( 'activeUser: ', activeUser )
+      console.log( 'req.cookies.username: ', req.cookies.username);
+
+      if (req.cookies.username === req.params.username) {
+        console.log( 'using the activeUser! ', true )
+        res.render('profile', { user: activeUser, posts: activeUser.posts, logged: req.cookies.username } );
+      }
+      else {
+       res.render('profile', { user: passiveUser, posts: passiveUser.posts, logged: req.cookies.username } ); 
+      }
       
-      res.render('profile', { username: user.username, posts: user.posts, activeUser: activeUser} );
     });
     
   }
@@ -183,7 +192,7 @@ router.get('/users', function(req, res, next) {
       var users = data.Users; // object containg user objects
       var names = Object.keys(users).sort(); // array of strings
       activeUser = users[req.cookies.username]; //the logged in users object
-      res.render('who', { users:names, activeUser: activeUser} );
+      res.render('who', { users:names, user: activeUser, logged: req.cookies.username} );
       
     });    
   }
@@ -201,12 +210,11 @@ router.post('/search', function(req,res,next){
         arry.push(elem);
       }      
     });
-    res.render('search', {array:arry, search:ser});
+    res.render('search', {array:arry, search:ser, logged: req.cookies.username});
   });
   
 });
 
-<<<<<<< HEAD
 router.post( '/delete', function(request, response){
 
   console.log( 'Im running the delete route!\n=======================')
@@ -231,8 +239,14 @@ router.post( '/delete', function(request, response){
     //var activeUser = users.[request.cookies.username];
     
     posts.filter( function( element ){
-      if ( element.date === $postTime && element.username === [request.cookies.username] ){
-        posts.splice( posts.indexOf(element), 1 );
+      if ( element.date === $postTime ){
+        console.log( 'this post is: ', element )
+        console.log( 'the username is: ', element.username )
+        console.log( 'the activeUser is: ', [request.cookies.username][0])
+        //if ( element.username === [request.cookies.username][0] ){
+          //console.log( 'condition met!' );
+          posts.splice( posts.indexOf(element), 1 );
+        //}
       }
     });
 

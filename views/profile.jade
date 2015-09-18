@@ -2,22 +2,40 @@ extends layout
 
 block content
   h1 I Can't Believe It's Not Twitter!
-  h3 Posts by #{username}. 
+  h3= "Posts by " + user['username']
 
 
   ul.allPosts
     each post in posts
-      div(class="postfield")
-        li(class="postlist")
-          div
-            a.pull-left(href="/user/"+ post.username)= post.username + " "
-            p(class="postline")=' said - "' + post.content + '"'
-              div(class="time")= 'at ' + post.date
-                div
-                  button.btn.btn-default(type="submit" class="favorite") Favorite
-                    span(class="glyphicon glyphicon-heart" aria-hidden="true")
-                  button.btn.btn-default(type="submit" class="share") Share
-                    span(class="glyphicon glyphicon-share" aria-hidden="true")
-                  if post.username === activeUser.username
-                    button.btn.btn-default(action='/delete', type="submit", method ='POST', class="remove") Delete
-                      span(class="glyphicon glyphicon-remove" aria-hidden="true")
+      li(class="postlist")
+        div(class="postfield")
+          a.pull-left(href="/user/"+ post['username'])= post['username'] + " "
+          p(class="postline")=' said - "' + post['content'] + '"'
+            div(class="time")
+              p= 'at ' + post['date']
+              div
+                button.btn.btn-default(type="submit" class="favorite") Favorite
+                  span(class="glyphicon glyphicon-heart" aria-hidden="true")
+                button.btn.btn-default(type="submit" class="share") Share
+                  span(class="glyphicon glyphicon-share" aria-hidden="true")
+                if post['username'] === logged
+                  button.btn.btn-default.remove(action='/delete', type="submit", method ='POST') Delete
+                    span(class="glyphicon glyphicon-remove" aria-hidden="true")
+
+  script.
+    $(document).ready( function(){
+        
+      function deletePost ( event ) {
+        console.log( 'Ive been told to delete this!\n===========================' )
+        event.preventDefault();
+        var $tweet = $(this).closest('.postlist');
+        //var $tweet = $(this).parent('div').parent('.time').parent('div').parent('li');
+        var $postTime = $(this).parent('div').parent('.time').children('p').html().split( ' ' )[1];
+        console.log ('post time for this tweet is: ', $postTime);
+        $.post( '/delete', { time: $postTime } ).done( function(){
+            $tweet.remove();
+          });
+      }
+
+      $('.remove').click( deletePost );
+    })

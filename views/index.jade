@@ -3,7 +3,7 @@ extends layout
 block content
   h1 I Can't Believe It's Not Twitter!
   div
-    h3 Hello, #{username}. 
+    h3= "Hello, " + user['username'] 
     form#post(action="/post", type="POST")
       input#text(type="text" placeholder="What do you have to say?" size="80" maxlength="240")
 
@@ -17,12 +17,12 @@ block content
               p= 'at ' + post.date
               div
                 button.btn.btn-default(type="submit" class="favorite") Favorite
-                    span(class="glyphicon glyphicon-heart" aria-hidden="true")
+                  span(class="glyphicon glyphicon-heart" aria-hidden="true")
                 button.btn.btn-default(type="submit" class="share") Share
-                    span(class="glyphicon glyphicon-share" aria-hidden="true")
-                if post.username === username
-                  button.btn.btn-default(action='/delete', type="submit", method ='POST', class="remove") Delete
-                      span(class="glyphicon glyphicon-remove" aria-hidden="true")
+                  span(class="glyphicon glyphicon-share" aria-hidden="true")
+                if post.username === user['username']
+                  button.btn.btn-default.remove(action='/delete', type="submit", method ='POST') Delete
+                    span(class="glyphicon glyphicon-remove" aria-hidden="true")
 
   script(type='text/javascript').
     $( document ).ready( function(){
