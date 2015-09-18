@@ -7,11 +7,12 @@ block content
   ul.posts
     each post in posts
       div(class="postfield")
-        li(class="postlist")= username + ' said - "' + post.content + '" at ' + post.date
-          form.navbar-form(id="searchbar" role="search" method="GET")
-            .form-group
-              button.btn.btn-default(type="submit") Delete
-              button.btn.btn-default(type="submit") Favorite
+        li(class="postlist")= username + ' said - "' + post.content + '"'
+          div(class="time")= 'at ' + post.date
+            form.navbar-form(id="searchbar" role="search" method="GET")
+              .form-group
+                button.btn.btn-default(type="submit") Favorite
+                button.btn.btn-default(type="submit") Delete
 
   
 

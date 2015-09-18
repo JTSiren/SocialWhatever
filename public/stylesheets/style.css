@@ -8,10 +8,17 @@ a {
   color: #00B7FF;
 }
 
+.time{
+  margin: 0 30px;
+  color: grey;
+}
+
 .postfield{
   background-color: #99CCFF;
-  border-radius: 10px;
-}
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 1%;
+  }
 
 li{
   list-style-type: none;
@@ -36,4 +43,10 @@ footer {
   left: 0;
   background-color: white;
   text-align: center;
+}
+
+#logout{
+  background-color: lightyellow;
+  border-radius: 10px;
+  margin-top: 8px;
 }

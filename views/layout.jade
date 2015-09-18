@@ -21,9 +21,9 @@ html
           a(href="/fav") Favorites
         li 
           a(href="/users") Users
-        li
+        li.pull-right
           form(action="/logout" method='GET')
-            input#logout( type="submit", value="logout" )
+            input#logout( type="submit", value="Logout" )
         li.pull-right
           form.navbar-form(id="searchbar", role="search", action="/search", method="POST")
             input.form-control(type="text", placeholder="Search" name="search")

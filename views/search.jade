@@ -6,4 +6,10 @@ block content
 
   ul.array
     each post in array
-      li=  post.username + ' said - "' + post.content + '" at ' + post.date
+      div(class="postfield")
+        li(class="postlist")= post.username + ' said - "' + post.content + '"'
+          div(class="time")= 'at ' + post.date
+            form.navbar-form(id="searchbar" role="search" method="GET")
+              .form-group
+                button.btn.btn-default(type="submit") Favorite
+                button.btn.btn-default(type="submit") Delete

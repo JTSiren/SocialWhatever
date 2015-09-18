@@ -10,7 +10,11 @@ block content
   ul.allPosts
     each post in allPosts
       div(class="postfield")
-        li(class="postlist")= post.username + ' said - "' + post.content + '" at ' + post.date
+        li(class="postlist")= post.username + ' said - "' + post.content + '"'
+          div(class="time")= 'at ' + post.date
+            div
+              button.btn.btn-default(type="submit") Favorite
+              button.btn.btn-default(type="submit") Delete
 
   script(type='text/javascript').
     $( document ).ready( function(){
@@ -26,12 +30,6 @@ block content
           
           $.post(url, content, function(response){ 
           });
-          //console.log( '$(this): ', $(this) );
-          //console.log( '$(this) action attribute: ', $(this).attr('action'))
-          //console.log( 'the form content: ', content)
-
-
-          //console.log('I wrote a post!' );
         });
 
       function refreshPosts () {
@@ -50,7 +48,15 @@ block content
             if ( post ){
               $('.allPosts')
                 .prepend( 
-                  $('<li>').html( post.username + ' said - "' + post.content + '"" at ' + post.date ) 
+                  $('<li class="postfield">').html( post.username + ' said - "' + post.content + '"')
+                    .append(
+                      $('<div class="time">').html('at ' + post.date)
+                        .append(
+                          $('<div>')
+                            .append($('<button class="btn btn-default" type="submit">Favorite</button>'))
+                            .append($('<button class="btn btn-default" type="submit">Delete</button>'))
+                        )
+                    )
                 )
             }
           });

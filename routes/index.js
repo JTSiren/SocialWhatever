@@ -19,10 +19,8 @@ router.get('/', function(req, res, next) {
 
       data = JSON.parse( data );
       var users = data.Users;
-      // console.log('users obj is', users);
       user = users[req.cookies.username];
-      // console.log( 'here is the user im passing to the index jade template: ', user );
-      res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother } );
+      res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother} );
     });
     
   }
@@ -160,9 +158,7 @@ router.get('/user/:username', function(req, res, next) {
       // user = users[req.cookies.username];
       // console.log('what is the username', req.params.username);
       user = users[req.params.username];
-      console.log( 'here is the user im passing to the index jade template: ', user );
-      console.log('posts are: ', user.posts);
-      console.log('username is: ', user.username);
+      
       res.render('profile', { username: user.username, posts: user.posts} );
       
     });
@@ -208,17 +204,6 @@ router.post('/search', function(req,res,next){
   });
   
 });
-
-
-// router.get('/search', function( req, res, next ){
-//   console.log("i did a search");
-//   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-//     //console.log( 'this is the refresh post readFile data: ', data);
-//     allPosts = JSON.parse(data).Mother;
-//     //console.log( 'heres what i think allPosts is: ', allPosts );
-//     res.send( allPosts );
-//   });
-// });
 
 
 module.exports = router;
