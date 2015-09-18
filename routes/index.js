@@ -6,7 +6,7 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log( 'these are my current cookies: ', req.cookies );
+  // console.log( 'these are my current cookies: ', req.cookies );
 
   if ( req.cookies.logged === undefined ){
     res.redirect('/login');
@@ -17,16 +17,20 @@ router.get('/', function(req, res, next) {
 
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
 
+<<<<<<< HEAD
       var data = JSON.parse( data );
+=======
+      data = JSON.parse( data );
+>>>>>>> c95c7a8b8387004aea3e9a79c9445555ee6c1902
       var users = data.Users;
       user = users[req.cookies.username];
-      console.log( 'here is the user im passing to the index jade template: ', user );
-      res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother } );
+      res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother} );
     });
     
   }
 
 });
+
 
 router.get('/login', function( req, res, next ){
   console.log( 'running the login route!' );
@@ -46,7 +50,7 @@ router.post('/login', function(req, res, next){
   
   fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
     data = JSON.parse(data);
-    users = data.Users;
+    var users = data.Users;
     if( users[username] ){
       res.cookie( 'logged' , true );
       res.cookie( 'username', username );
@@ -127,7 +131,11 @@ router.post('/post', function(req, res, next){
   data.Mother.unshift( post );
   data = JSON.stringify(data, null, 4);
   fs.writeFile( __dirname + '/users.json', data );
+<<<<<<< HEAD
     res.send('successfully added your post! nice one');
+=======
+    res.send();
+>>>>>>> c95c7a8b8387004aea3e9a79c9445555ee6c1902
   });
 });
 
@@ -142,7 +150,68 @@ router.get('/refreshPosts', function( req, res, next ){
   });
 });
 
+router.get('/user/:username', function(req, res, next) {
+  if ( req.cookies.logged === undefined ){
+    res.redirect('/login');
+  }
 
+  else {
+    var user = {};
+
+    fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+
+      data = JSON.parse( data );
+      var users = data.Users;
+      console.log('the users obj is', users);
+      // user = users[req.cookies.username];
+      // console.log('what is the username', req.params.username);
+      user = users[req.params.username];
+      
+      res.render('profile', { username: user.username, posts: user.posts} );
+      
+    });
+    
+  }
+
+});
+
+router.get('/users', function(req, res, next) {
+  if ( req.cookies.logged === undefined ){
+    res.redirect('/login');
+  }
+
+  else {
+    var user = {};
+
+    fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+
+      data = JSON.parse( data );
+      var users = data.Users;
+      var names = Object.keys(users).sort();
+      user = users[req.cookies.username];
+      res.render('who', { users:names, username: user.username} );
+      
+    });    
+  }
+});
+
+router.post('/search', function(req,res,next){
+  var arry = [];
+  fs.readFile(__dirname + '/users.json', 'utf8', function(err, data){
+    
+    data = JSON.parse( data );
+    var posts = data.Mother;
+    var ser = req.body.search;
+    posts.forEach(function(elem){
+      element=elem.content.toLowerCase();
+      if(element.indexOf(req.body.search.toLowerCase())>=0){
+        arry.push(elem);
+      }      
+    });
+    res.render('search', {array:arry, search:ser});
+  });
+  
+});
 
 
 module.exports = router;
