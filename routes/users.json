@@ -1,6 +1,24 @@
 {
     "Mother": [
         {
+            "username": "Jason",
+            "content": "Favorite THIS. ",
+            "date": "2015-09-18T18:45:35.960Z",
+            "favorited": false
+        },
+        {
+            "username": "Theresa",
+            "content": "something",
+            "date": "2015-09-18T03:46:03.985Z",
+            "favorited": false
+        },
+        {
+            "username": "Theresa",
+            "content": "whatever",
+            "date": "2015-09-18T03:43:57.778Z",
+            "favorited": false
+        },
+        {
             "username": "Jack",
             "content": "Post3",
             "date": "2015-09-18T03:04:12.676Z",
@@ -45,6 +63,36 @@
                     "username": "Jack",
                     "content": "Post3",
                     "date": "2015-09-18T03:04:12.676Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Theresa": {
+            "username": "Theresa",
+            "posts": [
+                {
+                    "username": "Theresa",
+                    "content": "something",
+                    "date": "2015-09-18T03:46:03.985Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Theresa",
+                    "content": "whatever",
+                    "date": "2015-09-18T03:43:57.778Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
+        },
+        "Jason": {
+            "username": "Jason",
+            "posts": [
+                {
+                    "username": "Jason",
+                    "content": "Favorite THIS. ",
+                    "date": "2015-09-18T18:45:35.960Z",
                     "favorited": false
                 }
             ],

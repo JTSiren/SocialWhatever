@@ -6,7 +6,7 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // console.log( 'these are my current cookies: ', req.cookies );
+  console.log( 'these are my current cookies: ', req.cookies );
 
   if ( req.cookies.logged === undefined ){
     res.redirect('/login');
@@ -81,9 +81,11 @@ router.post('/register', function(req, res){
     data = JSON.stringify(data);
     fs.writeFile( __dirname + '/users.json', data );
 
+
     res.cookie( 'logged' , true );
     res.cookie( 'username', username );
     res.redirect('/');
+
   }); //end readFile callback
 });// end /register post
 
@@ -96,6 +98,8 @@ router.get('/logout', function(req, res, next){
   /*I NEED TO RENDER A NEW PAGE AFTER DELETING THE COOKIES!*/
   //next();
 }); //end /logout post
+
+
 
 
 router.post('/post', function(req, res, next){
@@ -164,10 +168,15 @@ router.get('/user/:username', function(req, res, next) {
       var users = data.Users;
       console.log('the users obj is', users);
       // user = users[req.cookies.username];
-      // console.log('what is the username', req.params.username);
+      console.log('what is the username', req.params.username);
       user = users[req.params.username];
       
-      res.render('profile', { username: user.username, posts: user.posts} );
+      var usercook = users[req.cookies.username].username;
+      console.log('user is', user);
+      console.log('usercook is ' , usercook);
+      console.log(user.username);
+      
+      res.render('profile', { username: usercook, posts: user.posts} );
       
     });
     
@@ -212,7 +221,6 @@ router.post('/search', function(req,res,next){
   });
   
 });
-
 
 module.exports = router;
 
