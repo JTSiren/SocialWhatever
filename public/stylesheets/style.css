@@ -13,6 +13,10 @@ a {
   color: grey;
 }
 
+.postline{
+  margin: 0px 45px;
+}
+
 .postfield{
   background-color: #99CCFF;
   border-radius: 20px;

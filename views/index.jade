@@ -10,11 +10,14 @@ block content
   ul.allPosts
     each post in allPosts
       div(class="postfield")
-        li(class="postlist")= post.username + ' said - "' + post.content + '"'
-          div(class="time")= 'at ' + post.date
-            div
-              button.btn.btn-default(type="submit") Favorite
-              button.btn.btn-default(type="submit") Delete
+        li(class="postlist")
+          div
+            a.pull-left(href="/user/"+ post.username)= post.username + " "
+            p(class="postline")=' said - "' + post.content + '"'
+              div(class="time")= 'at ' + post.date
+                div
+                  button.btn.btn-default(type="submit") Favorite
+                  button.btn.btn-default(type="submit") Delete
 
   script(type='text/javascript').
     $( document ).ready( function(){
@@ -48,7 +51,7 @@ block content
             if ( post ){
               $('.allPosts')
                 .prepend( 
-                  $('<li class="postfield">').html( post.username + ' said - "' + post.content + '"')
+                  $('<li class="postfield">').html("<a href='/user/' + post.username>"+ post.username + "</a>" + " " +' said - "' + post.content + '"')
                     .append(
                       $('<div class="time">').html('at ' + post.date)
                         .append(
