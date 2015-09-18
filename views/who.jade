@@ -4,7 +4,9 @@ block content
   h1 I Can't Believe It's Not Twitter!
   h3 All Registered Users: 
 
+  p= users
+  p= activeUser.username
   ul.users
     each user in users
       li
-      a(href="/user/"+user)= user
+      a(href="/user/" + user)= user

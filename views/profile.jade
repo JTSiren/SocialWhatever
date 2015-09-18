@@ -14,5 +14,6 @@ block content
             p(class="postline")=' said - "' + post.content + '"'
               div(class="time")= 'at ' + post.date
                 div
-                  button.btn.btn-default(type="submit") Favorite
-                  button.btn.btn-default(type="submit") Delete
+                  button.btn.btn-default(action="/favorite", type="submit", method="POST") Favorite
+                  if post.username === activeUser.username
+                    button.btn.btn-default(action="/delete", type="submit", method="POST") Delete

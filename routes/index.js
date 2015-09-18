@@ -16,12 +16,7 @@ router.get('/', function(req, res, next) {
     var user = {};
 
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
-
-<<<<<<< HEAD
       var data = JSON.parse( data );
-=======
-      data = JSON.parse( data );
->>>>>>> c95c7a8b8387004aea3e9a79c9445555ee6c1902
       var users = data.Users;
       user = users[req.cookies.username];
       res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother} );
@@ -78,7 +73,7 @@ router.post('/register', function(req, res){
       };
     }
 
-    data = JSON.stringify(data);
+    data = JSON.stringify(data, null, 4);
     fs.writeFile( __dirname + '/users.json', data );
 
     res.cookie( 'logged' , true );
@@ -131,11 +126,7 @@ router.post('/post', function(req, res, next){
   data.Mother.unshift( post );
   data = JSON.stringify(data, null, 4);
   fs.writeFile( __dirname + '/users.json', data );
-<<<<<<< HEAD
     res.send('successfully added your post! nice one');
-=======
-    res.send();
->>>>>>> c95c7a8b8387004aea3e9a79c9445555ee6c1902
   });
 });
 
@@ -163,11 +154,11 @@ router.get('/user/:username', function(req, res, next) {
       data = JSON.parse( data );
       var users = data.Users;
       console.log('the users obj is', users);
-      // user = users[req.cookies.username];
+      var activeUser = users[req.cookies.username];
       // console.log('what is the username', req.params.username);
       user = users[req.params.username];
       
-      res.render('profile', { username: user.username, posts: user.posts} );
+      res.render('profile', { username: user.username, posts: user.posts, activeUser: activeUser} );
       
     });
     
@@ -186,10 +177,10 @@ router.get('/users', function(req, res, next) {
     fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
 
       data = JSON.parse( data );
-      var users = data.Users;
-      var names = Object.keys(users).sort();
-      user = users[req.cookies.username];
-      res.render('who', { users:names, username: user.username} );
+      var users = data.Users; // object containg user objects
+      var names = Object.keys(users).sort(); // array of strings
+      activeUser = users[req.cookies.username]; //the logged in users object
+      res.render('who', { users:names, activeUser: activeUser} );
       
     });    
   }
@@ -198,7 +189,6 @@ router.get('/users', function(req, res, next) {
 router.post('/search', function(req,res,next){
   var arry = [];
   fs.readFile(__dirname + '/users.json', 'utf8', function(err, data){
-    
     data = JSON.parse( data );
     var posts = data.Mother;
     var ser = req.body.search;
@@ -212,6 +202,73 @@ router.post('/search', function(req,res,next){
   });
   
 });
+
+router.post( '/delete', function(request, response){
+
+  console.log( 'Im running the delete route!\n=======================')
+
+  var $postTime = request.body.time // => $postTime
+  console.log($postTime);
+
+  // go read the json
+ fs.readFile( __dirname + '/users.json', 'utf8', function(err, data){
+    //console.log( 'the data is currently a(n): ', typeof data );
+   
+    data = JSON.parse( data);
+   
+    //console.log( 'it looks like this now: ', data );
+   
+    var posts = data.Mother;
+
+    //console.log( 'all the posts: ', posts );
+    
+    var users = data.Users;
+    //console.log( 'all the users: ', users);
+    //var activeUser = users.[request.cookies.username];
+    
+    posts.filter( function( element ){
+      if ( element.date === $postTime && element.username === [request.cookies.username] ){
+        posts.splice( posts.indexOf(element), 1 );
+      }
+    });
+
+    data.Users[request.cookies.username].posts.filter( function( element ){
+      if ( element.date === $postTime ){
+        data.Users[request.cookies.username].posts.splice( data.Users[request.cookies.username].posts.indexOf(element), 1 );
+      }
+    });
+
+    var newData = {
+      "Mother": posts,
+      "Users" : users
+    }
+
+    // posts.filter( function( element ){ 
+    //   return element.date !== $postTime;
+    // });
+
+    newData = JSON.stringify( newData, null, 4 );
+    console.log( '===================\nmade it to stringify!\n===================' );
+    fs.writeFile( __dirname + '/users.json', newData);
+    response.send(  );
+  });
+  
+  // req.body.date === the post to be deleted
+  // check cookie to ensure right user's post
+  // for Mother array
+  // splice it out
+  // FOR users object 
+  //delete post object
+  // writeFile back with new smaller object
+  // res.send('you did it!')
+});
+
+
+
+
+
+
+
 
 
 module.exports = router;

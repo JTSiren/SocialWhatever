@@ -1,12 +1,6 @@
 {
     "Mother": [
         {
-            "username": "Jack",
-            "content": "Post3",
-            "date": "2015-09-18T03:04:12.676Z",
-            "favorited": false
-        },
-        {
             "username": "Matt",
             "content": "post2",
             "date": "2015-09-18T03:03:56.942Z",
@@ -16,6 +10,12 @@
             "username": "Matt",
             "content": "post1",
             "date": "2015-09-18T03:03:36.550Z",
+            "favorited": false
+        },
+        {
+            "username": "Jack",
+            "content": "Post3",
+            "date": "2015-09-18T03:04:12.676Z",
             "favorited": false
         }
     ],
