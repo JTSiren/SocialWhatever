@@ -13,29 +13,22 @@ html
   body
     nav
       ul.nav.nav-pills
-        li Home
-        li Profile
-        li Favorites
+        li 
+          a(href="/") Home
         li
-          form(action="/logout" method='GET')
-            input#logout( type="submit" value="logout" )
+          a(href="/user/" + username) Profile
+        li 
+          a(href="/fav") Favorites
+        li 
+          a(href="/users") Users
         li.pull-right
-          form.navbar-form(role="search")
-            .form-group
-              input.form-control(type="text", placeholder="Search")
-              button.btn.btn-default(type="submit") Submit
+          form(action="/logout" method='GET')
+            input#logout( type="submit", value="Logout" )
+        li.pull-right
+          form.navbar-form(id="searchbar", role="search", action="/search", method="POST")
+            input.form-control(type="text", placeholder="Search" name="search")
 
     block content
       
     footer
       p &copy; Social Whatever 2015
-
-    //- script(type='text/javascript').
-    //-   $('#logout').click( function(event){
-    //-       //console.log( '$(this): ', $(this) );
-    //-       //console.log( '$(this) formatction attribute: ', $(this).attr('formaction'))
-    //-       //var url = $(this).attr('formaction');
-    //-       $.get('/logout', function(){console.log('deleted the cookies!' )});
-    //-     });
-
-
