@@ -7,9 +7,11 @@ block content
   ul.array
     each post in array
       div(class="postfield")
-        li(class="postlist")= post.username + ' said - "' + post.content + '"'
-          div(class="time")= 'at ' + post.date
-            form.navbar-form(id="searchbar" role="search" method="GET")
-              .form-group
-                button.btn.btn-default(type="submit") Favorite
-                button.btn.btn-default(type="submit") Delete
+        li(class="postlist")
+          div
+            a.pull-left(href="/user/"+ post.username)= post.username + " "
+            p(class="postline")=' said - "' + post.content + '"'
+              div(class="time")= 'at ' + post.date
+                div
+                  button.btn.btn-default(type="submit") Favorite
+                  button.btn.btn-default(type="submit") Delete
