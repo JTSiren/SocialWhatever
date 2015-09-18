@@ -14,5 +14,6 @@ block content
             p(class="postline")=' said - "' + post.content + '"'
               div(class="time")= 'at ' + post.date
                 div
-                  button.btn.btn-default(type="submit") Favorite
-                  button.btn.btn-default(type="submit") Delete
+                  button.btn.btn-default(type="submit" class="favorite") Favorite
+                  button.btn.btn-default(type="submit" class="share") Share
+                  button.btn.btn-default(type="submit" class="remove") Delete

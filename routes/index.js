@@ -6,7 +6,7 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // console.log( 'these are my current cookies: ', req.cookies );
+  console.log( 'these are my current cookies: ', req.cookies );
 
   if ( req.cookies.logged === undefined ){
     res.redirect('/login');
