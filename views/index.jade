@@ -17,7 +17,9 @@ block content
               div(class="time")= 'at ' + post.date
                 div
                   button.btn.btn-default(type="submit" class="favorite") Favorite
+                    span(class="glyphicon glyphicon-heart" aria-hidden="true")
                   button.btn.btn-default(type="submit" class="share") Share
+                    span(class="glyphicon glyphicon-share" aria-hidden="true")
 
   script(type='text/javascript').
     $( document ).ready( function(){

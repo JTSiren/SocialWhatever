@@ -1,7 +1,11 @@
-
 {
-
     "Mother": [
+        {
+            "username": "Jason",
+            "content": "Favorite THIS. ",
+            "date": "2015-09-18T18:45:35.960Z",
+            "favorited": false
+        },
         {
             "username": "Theresa",
             "content": "something",
@@ -81,7 +85,18 @@
                 }
             ],
             "favs": []
+        },
+        "Jason": {
+            "username": "Jason",
+            "posts": [
+                {
+                    "username": "Jason",
+                    "content": "Favorite THIS. ",
+                    "date": "2015-09-18T18:45:35.960Z",
+                    "favorited": false
+                }
+            ],
+            "favs": []
         }
     }
 }
-
