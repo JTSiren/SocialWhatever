@@ -6,7 +6,7 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log( 'these are my current cookies: ', req.cookies );
+  // console.log( 'these are my current cookies: ', req.cookies );
 
   if ( req.cookies.logged === undefined ){
     res.redirect('/login');
@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
       var users = data.Users;
       // console.log('users obj is', users);
       user = users[req.cookies.username];
-      console.log( 'here is the user im passing to the index jade template: ', user );
+      // console.log( 'here is the user im passing to the index jade template: ', user );
       res.render('index', { username: user.username, posts: user.posts, allPosts: data.Mother } );
     });
     
@@ -191,14 +191,23 @@ router.get('/users', function(req, res, next) {
   }
 });
 
-router.get('/search', function(req,res,next){
+router.post('/search', function(req,res,next){
   var arry = [];
-  
+  console.log('i searched something');
   fs.readFile(__dirname + '/users.json', 'utf8', function(err, data){
     
     data = JSON.parse( data );
-    // var searchresults = 
+    var posts = data.Mother;
+    console.log("the req body is", req.body);
     
+    posts.forEach(function(elem){
+      element=elem.content.toLowerCase();
+      if(element.indexOf(req.body.search.toLowerCase())>=0){
+        arry.push(elem);
+      }      
+    });
+    console.log("before", arry);
+    res.render('search', {array:arry});
   });
   
 });

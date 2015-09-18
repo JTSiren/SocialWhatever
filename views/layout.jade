@@ -23,12 +23,10 @@ html
           a(href="/users") Users
         li
           form(action="/logout" method='GET')
-            input#logout( type="submit" value="logout" )
+            input#logout( type="submit", value="logout" )
         li.pull-right
-          form.navbar-form(id="searchbar" role="search" method="GET")
-            .form-group
-              input.form-control(type="text", placeholder="Search")
-              button.btn.btn-default(type="submit") Submit
+          form.navbar-form(id="searchbar", role="search", action="/search", method="POST")
+            input.form-control(type="text", placeholder="Search" name="search")
 
     block content
       

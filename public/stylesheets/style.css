@@ -8,10 +8,20 @@ a {
   color: #00B7FF;
 }
 
+.postfield{
+  background-color: #99CCFF;
+  border-radius: 10px;
+}
+
+li{
+  list-style-type: none;
+}
+  
 .nav.nav-pills{
   background-color: lightgreen;
   font-size: 20px;
   margin-top: -40px;  
+  
 }
 
 #text {

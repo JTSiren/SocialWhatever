@@ -9,7 +9,8 @@ block content
 
   ul.allPosts
     each post in allPosts
-      li= post.username + ' said - "' + post.content + '" at ' + post.date
+      div(class="postfield")
+        li(class="postlist")= post.username + ' said - "' + post.content + '" at ' + post.date
 
   script(type='text/javascript').
     $( document ).ready( function(){
