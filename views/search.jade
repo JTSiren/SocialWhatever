@@ -2,11 +2,10 @@ extends layout
 
 block content
   h1 I Can't Believe It's Not Twitter!
-  h3 Posts by #{username}. 
+  h3 Search Results for " #{search} "
 
-
-  ul.allPosts
-    each post in posts
+  ul.array
+    each post in array
       div(class="postfield")
         li(class="postlist")
           div
