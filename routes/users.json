@@ -1,9 +1,33 @@
 {
     "Mother": [
         {
-            "username": "Matt",
-            "content": "Hello",
-            "date": "2015-09-18T23:25:11.811Z",
+            "username": "Jason",
+            "content": "I miss playing music.",
+            "date": "2015-09-18T23:34:53.087Z",
+            "favorited": false
+        },
+        {
+            "username": "Jason",
+            "content": "an*",
+            "date": "2015-09-18T23:33:04.291Z",
+            "favorited": false
+        },
+        {
+            "username": "Theresa",
+            "content": "They need to put in a edit function",
+            "date": "2015-09-18T23:31:26.975Z",
+            "favorited": false
+        },
+        {
+            "username": "Jack",
+            "content": "I totally meant to say best not pest",
+            "date": "2015-09-18T23:31:07.838Z",
+            "favorited": false
+        },
+        {
+            "username": "Jack",
+            "content": "Pest twitter ever!",
+            "date": "2015-09-18T23:30:54.663Z",
             "favorited": false
         },
         {
@@ -37,12 +61,6 @@
             "posts": [
                 {
                     "username": "Matt",
-                    "content": "Hello",
-                    "date": "2015-09-18T23:25:11.811Z",
-                    "favorited": false
-                },
-                {
-                    "username": "Matt",
                     "content": "Ta da!",
                     "date": "2015-09-18T23:23:14.014Z",
                     "favorited": false
@@ -52,12 +70,31 @@
         },
         "Jack": {
             "username": "Jack",
-            "posts": [],
+            "posts": [
+                {
+                    "username": "Jack",
+                    "content": "I totally meant to say best not pest",
+                    "date": "2015-09-18T23:31:07.838Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Jack",
+                    "content": "Pest twitter ever!",
+                    "date": "2015-09-18T23:30:54.663Z",
+                    "favorited": false
+                }
+            ],
             "favs": []
         },
         "Theresa": {
             "username": "Theresa",
             "posts": [
+                {
+                    "username": "Theresa",
+                    "content": "They need to put in a edit function",
+                    "date": "2015-09-18T23:31:26.975Z",
+                    "favorited": false
+                },
                 {
                     "username": "Theresa",
                     "content": "something",
@@ -76,6 +113,18 @@
         "Jason": {
             "username": "Jason",
             "posts": [
+                {
+                    "username": "Jason",
+                    "content": "I miss playing music.",
+                    "date": "2015-09-18T23:34:53.087Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Jason",
+                    "content": "an*",
+                    "date": "2015-09-18T23:33:04.291Z",
+                    "favorited": false
+                },
                 {
                     "username": "Jason",
                     "content": "Favorite THIS. ",
