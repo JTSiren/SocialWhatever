@@ -1,6 +1,18 @@
 {
     "Mother": [
         {
+            "username": "Matt",
+            "content": "test",
+            "date": "2015-09-18T23:57:19.393Z",
+            "favorited": false
+        },
+        {
+            "username": "Matt",
+            "content": "I'll favorite what I want",
+            "date": "2015-09-18T23:57:00.666Z",
+            "favorited": false
+        },
+        {
             "username": "Jason",
             "content": "I miss playing music.",
             "date": "2015-09-18T23:34:53.087Z",
@@ -61,8 +73,26 @@
             "posts": [
                 {
                     "username": "Matt",
-                    "content": "Ta da!",
-                    "date": "2015-09-18T23:23:14.014Z",
+                    "content": "test",
+                    "date": "2015-09-18T23:57:19.393Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "I'll favorite what I want",
+                    "date": "2015-09-18T23:57:00.666Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "post2",
+                    "date": "2015-09-18T03:03:56.942Z",
+                    "favorited": false
+                },
+                {
+                    "username": "Matt",
+                    "content": "post1",
+                    "date": "2015-09-18T03:03:36.550Z",
                     "favorited": false
                 }
             ],
