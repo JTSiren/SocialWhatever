@@ -18,8 +18,6 @@ block content
               div
                 button.btn.btn-default(type="submit" class="favorite") Favorite
                   span(class="glyphicon glyphicon-heart" aria-hidden="true")
-                button.btn.btn-default(type="submit" class="share") Share
-                  span(class="glyphicon glyphicon-share" aria-hidden="true")
                 if post.username === user['username']
                   button.btn.btn-default.remove(action='/delete', type="submit", method ='POST') Delete
                     span(class="glyphicon glyphicon-remove" aria-hidden="true")
@@ -77,7 +75,7 @@ block content
           console.log('timestamp is now: ', timestamp);
           }); //END OF DONE CALLBACK
       } //END OF REFRESH FUNCTION
-      //window.setInterval(refreshPosts, 5000);
+      window.setInterval(refreshPosts, 5000);
 
       function deletePost ( event ) {
         console.log( 'Ive been told to delete this!\n===========================' )
